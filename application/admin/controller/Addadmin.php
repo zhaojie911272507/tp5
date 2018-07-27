@@ -18,11 +18,6 @@ class Addadmin extends Controller
     {
     
     $list=AdminModel::paginate(4);
-    	// $list=Db::table('admin')
-    	// ->where('UserName',zhangsan)
-    	
-    	
-    	// ->select();
     // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
     $count=$list->total();//获取总记录数
 
@@ -72,12 +67,8 @@ class Addadmin extends Controller
 				return $this->error('添加管理员失败');	
 			}
 		//	var_dump(input('post.'));
-			
 		}
-
-		
 			return $this->fetch('add');
-
 	}
 
 	// public function del()

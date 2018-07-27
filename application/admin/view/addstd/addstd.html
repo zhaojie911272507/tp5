@@ -53,20 +53,27 @@
         <div class="field">
           <input type="password" class="input w50" id="mpass" name="mpass" size="50" placeholder="请输入姓名" data-validate="required:请输入姓名" />       
         </div>
-      </div>  
-
-
-     <div class="form-group">
+      </div>     
+       <div class="form-group">
         <div class="label">
-               <label for="sitename">性别：</label>
-         </div>
-            <input  type="radio" id="sex-1" name="sex" value="男" checked>
-            <label for="sitename">男</label>
-            &nbsp; &nbsp;
-            <input  type="radio" id="sex-2" name="sex" value="女">
-          <label>女</label>
-          </div>
+          <label>性别：</label>
+        </div>
+        <div class="field">
+          <div class="button-group radio">
+          
+          <label class="button active">
+            <span class="icon icon-check"></span>             
+              <input name="sex" value="1" type="radio" checked="checked">男             
+          </label>             
         
+          <label class="button active"><span class="icon icon-check"></span>            
+              <input name="sex" value="0"  type="radio">女
+          </label>         
+           </div>       
+        </div>
+     </div>
+
+
     <div class="form-group">
         <div class="label">
           <label for="sitename">专业班级：</label>

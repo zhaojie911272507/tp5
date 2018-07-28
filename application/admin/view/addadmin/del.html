@@ -21,20 +21,19 @@
     <tr>
       <th width="5%">ID</th>     
       <th>管理员名称</th>  
-      <th>排序</th>     
+         
       <th width="250">操作</th>
     </tr>
    
-
    {volist name='guanliyuan' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
       <td>{$vo.Id}</td>      
       <td>{$vo.UserName}</td>  
-      <td>{$vo.Id}</td>      
+       
       <td>
       <div class="button-group">
       <a type="button" class="button border-main" href="#"><span class="icon-edit"></span>修改</a>
-       <a class="button border-red" href="javascript:void(0)" onclick="return del(17)"><span class="icon-trash-o"></span>删除</a>
+      <a class="button border-red" href="" onclick="confirm('确定要删除吗','{:url('addadmin/del',array('id'=>$vo['Id']))}'"><span class="icon-trash-o"></span>删除</a>
       </div>
       </td>
     </tr> 
@@ -46,14 +45,5 @@
 </div>
 
 
-
-<script>
-function del(id){
-  if(confirm("您确定要删除吗?")){
-    
-  }
-
-}
-</script> 
 
 </body></html>

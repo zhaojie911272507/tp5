@@ -3,13 +3,13 @@
 namespace app\admin\controller;
 use think\Controller;
 use think\Db;
-use app\admin\model\Admin as AdminModel;
+use app\admin\model\Admin;
 
 class Addadmin extends Controller
 { 
     public function addadmin()
     {
-    	//return "23
+    	
      return $this->fetch();
 	
      }
@@ -17,10 +17,9 @@ class Addadmin extends Controller
 	public function listadmin()
     {
     
-    $list=AdminModel::paginate(4);
+    $list=Admin::paginate(4);  
     // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
     $count=$list->total();//获取总记录数
-
     $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
 
      return $this->fetch();//渲染模板输出
@@ -66,30 +65,31 @@ class Addadmin extends Controller
 			{
 				return $this->error('添加管理员失败');	
 			}
-		//	var_dump(input('post.'));
+		
 		}
 			return $this->fetch('add');
+
 	}
 
-	// public function del()
-	// {		
-	// 	$id=input('id');//返回的结果为获取的id
-	// 	if($id!=2)
-	// 	{
-	// 		if(db('admin')->delete(input('id')))// db('admin')->delete(input('id'));//这里的$id是删除数据的数量
-	// 		{
-	// 			$this->success('删除管理员成功','listadmin');
-	// 		}
-	// 		else
-	// 		{
-	// 			$this->error('删除管理员失败');
-	// 		}
-	// 	}
-	// 	else
-	// 	{
-	// 		$this->error('初始管理员不能删除');
-	// 	}
-	//  }
+	public function del()
+	{		
+		$id=input('id');//返回的结果为获取的id
+
+		if($id!=2)
+		{
+			if(db('admin')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+			{
+				$this->success('删除管理员成功','listadmin');
+			}else{
+				$this->error('删除管理员失败');
+			}
+		}
+		else
+		{
+			 $this->error('初始管理员不能删除'); 
+		}
+		
+	 }
 
 }
  

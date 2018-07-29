@@ -24,7 +24,7 @@
         <th>性别</th>
         <th>专业班级</th>
         <th>项目</th>
-      
+        <th>操作</th>
     </tr>
    
    {volist name='stdinfo' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
@@ -35,13 +35,15 @@
       <td>{$vo.Sex}</td>
       <td>{$vo.Class}</td>  
       <td></td>
+      <td>
+      <div class="button-group">
+      <a type="button" class="button border-main" href="#"><span class="icon-edit"></span>修改</a>
+       <a class="button border-red" href="{:url('addstd/del',array('id'=>$vo['Id']))}" onclick="warning('确定删除信息吗','{:url('addstd/del',array('id'=>$vo['Id']))}')"><span class="icon-trash-o"></span>删除</a>
+      </div>
+      </td>
     </tr> 
     {/volist}
-    
-    
   </table>
   {$stdinfo|raw}
   </div>
-
- 
 </body></html>

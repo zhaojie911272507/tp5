@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
     <script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
     <script src="__PUBLIC__/static/admin/style/js/pintuer.js"></script>  
+
 </head>
 <body>
 <div class="panel admin-panel">
@@ -31,17 +32,22 @@
       <td>{$vo.UserName}</td>
       <td>
       <div class="button-group">
-      <a type="button" class="button border-main" href="#"><span class="icon-edit"></span>修改</a>
-       <a class="button border-red" href="{:url('addadmin/del',array('id'=>$vo['Id']))}" onclick="confirm('确定要删除吗','{:url('addadmin/del',array('id'=>$vo['Id']))}')"><span class="icon-trash-o"></span>删除</a>
+      <a type="button" class="button border-main" href="alert.html"><span class="icon-edit"></span>修改</a>
+
+
+      {if $vo.Id != 1}
+       <a class="button border-red" href="{:url('addadmin/del',array('id'=>$vo['Id']))}" onclick="warning('您确定要删除吗?','{:url('addadmin/del',array('id'=>$vo['Id']))}')"><span class="icon-trash-o"></span>删除</a>
+      
+      {/if}
+
+
       </div>
       </td>
     </tr> 
     {/volist}
-    
-    
   </table>
   {$guanliyuan|raw}
   </div>
-
+ 
 
 </body></html>

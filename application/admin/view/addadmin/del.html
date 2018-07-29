@@ -24,26 +24,19 @@
          
       <th width="250">操作</th>
     </tr>
-   
    {volist name='guanliyuan' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
       <td>{$vo.Id}</td>      
       <td>{$vo.UserName}</td>  
-       
       <td>
       <div class="button-group">
       <a type="button" class="button border-main" href="#"><span class="icon-edit"></span>修改</a>
-      <a class="button border-red" href="" onclick="confirm('确定要删除吗','{:url('addadmin/del',array('id'=>$vo['Id']))}'"><span class="icon-trash-o"></span>删除</a>
+      <a class="button border-red" href="{:url('addadmin/del',array('id'=>$vo['Id']))}'" onclick="confirm('确定要删除吗')><span class="icon-trash-o"></span>删除</a>
       </div>
       </td>
     </tr> 
     {/volist}
-    
-    
   </table>
 {$guanliyuan|raw}
 </div>
-
-
-
 </body></html>

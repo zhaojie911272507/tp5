@@ -90,6 +90,20 @@ class Addadmin extends Controller
 		}
 		
 	 }
+	
+	public function alert()
+	{		
+		
+	 	$id=input('id');
+	 	$query=new \think\db\Query();
+	 	$query->table('admin')->where('Id',$id);
+	 	if(db::find($query))
+	 	{
+	 		return $this->fetch('alert');
+	 	}
 
+	 	
+
+	 }
 }
  

@@ -68,6 +68,23 @@ class Addstd extends Controller
 			return $this->fetch('add');
 			
 	}
+//删除学生方法
+	public function del()
+	{		
+		$id=input('id');//返回的结果为获取的id
+
+		if($id!=2)
+		{
+			if(db('stdinfo')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+			{
+				$this->success('删除学生成功','liststd');
+			}else{
+				$this->error('删除学生失败');
+			}
+		}
+		
+		
+	 }
 
 
 }

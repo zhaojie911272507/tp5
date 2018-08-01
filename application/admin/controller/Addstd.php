@@ -16,7 +16,7 @@ class Addstd extends Controller
      public function liststd()
     {
     
-    $list=Stdinfo::paginate(4);
+    $list=Stdinfo::paginate(6);
     // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
     $count=$list->total();//获取总记录数
     $this->assign('stdinfo',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
@@ -53,11 +53,9 @@ class Addstd extends Controller
 			$this->error($validate->getError());//此处也可以用dump($validate->getError())，用$this->error();打印出来的效果会好一些
 			die;  
 			}
-
-
 			if(db('stdinfo')->insert($data))
 			{
-				return $this->success('添加学生成功','add');
+				return $this->success('添加学生成功','liststd');
 			}
 			else 
 			{

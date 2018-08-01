@@ -14,34 +14,44 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong><span class="icon-key"></span> 修改管理员信息</strong></div>
+  <div class="panel-head"><strong><span class="icon-key"></span> 增加链接</strong></div>
   <div class="body-content">
 
 
     <form method="post" class="form-x" action="">
       <div class="form-group">
         <div class="label">
-          <label for="sitename">用户名：</label>
+          <label for="sitename">链接题目：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="username" name="username" size="50" placeholder="输入修改用户名" data-validate="required:输入用户名" />       
+          <input type="text" class="input w55" id="title" name="title" size="50" placeholder="输入链接" data-validate="required:输入链接" />       
         </div>
       </div>  
       <div class="form-group">
         <div class="label">
-          <label for="sitename">密码：</label>
+          <label for="sitename">链接地址：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" id="password" name="password" size="50" placeholder="请输入修改密码" data-validate="required:请输入修改密码,length#>=5:密码不能小于5位" />         
+          <input type="text" value="http://" class="input w55" id="url" name="url" size="50" placeholder="输入链接地址,注意要加上http://" data-validate="required:输入链接地址" />       
+        </div>
+      </div>  
+      <div class="form-group">
+        <div class="label">
+          <label for="sitename">链接说明：</label>
+        </div>
+       <div class="field">
+          <textarea  id="desc" class="input w55" name="desc" placeholder="链接说明" data-validate="required:输入链接说明"></textarea>
+                 
         </div>
       </div>
+
       <div class="form-group">
         <div class="label">
           <label></label>
         </div>
         <div class="field">
           <button class="button bg-main icon-repeat" type="reset"> 取消</button>
-          <button class="button bg-main icon-check-square-o" type="submit"> 确定修改</button>   
+          <button class="button bg-main icon-check-square-o" type="submit">增加</button>   
         </div>
       </div>      
     </form>

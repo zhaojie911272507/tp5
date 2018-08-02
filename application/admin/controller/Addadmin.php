@@ -136,5 +136,11 @@ class Addadmin extends Controller
 	 	
 	 	return $this->fetch('update');	 
 	 }
+
+	 public function logout()
+	 {
+	 	session(null);
+	 	$this->success('退出成功..','login/login');
+	 }
 }
  

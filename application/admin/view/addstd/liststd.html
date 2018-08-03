@@ -37,8 +37,8 @@
       <td></td>
       <td>
       <div class="button-group">
-      <a type="button" class="button border-main" href="#"><span class="icon-edit"></span>修改</a>
-       <a class="button border-red" href="{:url('addstd/del',array('id'=>$vo['Id']))}" onclick="warning('确定删除信息吗','{:url('addstd/del',array('id'=>$vo['Id']))}')"><span class="icon-trash-o"></span>删除</a>
+      <a type="button" class="button border-main" href="{:url('addstd/update',array('id'=>$vo['Id']))}"><span class="icon-edit"></span>修改</a>
+       <a class="button border-red" href="{:url('addstd/del',array('id'=>$vo['Id']))}" onclick="return del()"><span class="icon-trash-o"></span>删除</a>
       </div>
       </td>
     </tr> 
@@ -46,4 +46,17 @@
   </table>
   {$stdinfo|raw}
   </div>
+  <script type="text/javascript">
+    function del()
+    {
+      if(confirm('你确定要删除吗'))
+      {
+        return true;
+      }
+      else 
+      {
+        return false;
+      }
+    }
+  </script>
 </body></html>

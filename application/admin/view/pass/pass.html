@@ -16,13 +16,16 @@
   <div class="panel-head"><strong><span class="icon-key"></span> 修改会员密码</strong></div>
   <div class="body-content">
     <form method="post" class="form-x" action="">
+
+      <input type="hidden" value="{$Request.session.uid}" name="id">
+
       <div class="form-group">
         <div class="label">
           <label for="sitename">管理员帐号：</label>
         </div>
         <div class="field">
           <label style="line-height:33px;">
-           admin
+          {$Request.session.username}
           </label>
         </div>
       </div>      
@@ -31,7 +34,7 @@
           <label for="sitename">原始密码：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" id="mpass" name="mpass" size="50" value="" placeholder="请输入原始密码" data-validate="required:请输入原始密码" />       
+          <input type="password" class="input w50" id="password" name="password"  maxlength="16" size="50" value="" placeholder="请输入原始密码" data-validate="required:请输入原始密码" />       
         </div>
       </div>      
       <div class="form-group">
@@ -39,7 +42,7 @@
           <label for="sitename">新密码：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" name="newpass" size="50" placeholder="请输入新密码" data-validate="required:请输入新密码,length#>=5:新密码不能小于5位" />         
+          <input type="password" class="input w50" name="newpassword" size="50" maxlength="16" placeholder="请输入新密码" data-validate="required:请输入新密码,length#>=5:新密码不能小于5位" />         
         </div>
       </div>
       <div class="form-group">
@@ -47,7 +50,7 @@
           <label for="sitename">确认新密码：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" name="renewpass" size="50" placeholder="请再次输入新密码" data-validate="required:请再次输入新密码,repeat#newpass:两次输入的密码不一致" />          
+          <input type="password" class="input w50" name="renewpassword" size="50"  maxlength="16" placeholder="请再次输入新密码" data-validate="required:请再次输入新密码,repeat#newpassword:两次输入的密码不一致" />          
         </div>
       </div>
       

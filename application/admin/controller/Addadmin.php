@@ -1,12 +1,14 @@
 <?php
 
 namespace app\admin\controller;
-use think\Controller;
 use think\Db;
 use app\admin\model\Admin;
 use app\admin\validate\Admin as Validateuser;
-class Addadmin extends Controller
+use app\admin\controller\Base;//因为公用的控制器，已经继承了controller
+class Addadmin extends Base
 { 
+	
+
     public function addadmin()
     {
     	
@@ -97,7 +99,7 @@ class Addadmin extends Controller
 				$data=[
 				'Id'=>input('id'),
 				'UserName'=>input('username'),	
-				'PassWord'=>input('password'),
+				'PassWord'=>md5(input('password')),
 			];
 			}
 			else
@@ -135,6 +137,28 @@ class Addadmin extends Controller
 	}
 	 	
 	 	return $this->fetch('update');	 
+	 }
+
+	 public function delcheck()
+	{		
+		$id=input('id');//返回的结果为获取的id
+
+		if($id!=1)
+		{
+			if(db('admin')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+			{
+				$this->success('删除管理员成功','listadmin');
+			}
+			else
+			{
+				$this->error('删除管理员失败');
+			}
+		}
+		else
+		{
+			 $this->error('初始管理员不能删除'); 
+		}
+		
 	 }
 
 	 public function logout()

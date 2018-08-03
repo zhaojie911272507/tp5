@@ -85,7 +85,7 @@
           <label>手机：</label>
         </div>
         <div class="field">
-          <input type="text" class="input" name="phone" value="{$webinfo.PhoneNum}" />
+          <input type="text" class="input" name="phone" maxlength="11" value="{$webinfo.PhoneNum}" />
           <div class="tips"></div>
         </div>
       </div>
@@ -159,7 +159,7 @@
           <label>底部信息：</label>
         </div>
         <div class="field">
-          <textarea name="bottom" class="input" style="height:120px;">{$webinfo.BottomInfo}</textarea>
+          <textarea name="bottominfo" class="input" style="height:120px;">{$webinfo.BottomInfo}</textarea>
           <div class="tips"></div>
         </div>
       </div>

@@ -7,7 +7,7 @@ use app\admin\model\Info as Infom;
 use app\admin\validate\Info as Validateuser;
 class Info extends Controller
 { 
- 	public function info()
+ 	public function index()
      {
      	$id=input('id');
 	 	$webinfo=db('webinfo')->find($id);//获取一条数据	
@@ -37,7 +37,7 @@ class Info extends Controller
 				'qq'=>input('qq'),
 				'Email'=>input('email'),
 				'Adress'=>input('address'),
-				'BottomInfo'=>input('bottoninfo'),
+				'BottomInfo'=>input('bottominfo'),
 			];
 		
 			if(db('webinfo')->update($data))//此处把Id写到了data数组里，所以此处省略了where

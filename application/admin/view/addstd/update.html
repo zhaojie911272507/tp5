@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong><span class="icon-key"></span> 增加学生成员</strong></div>
+  <div class="panel-head"><strong><span class="icon-key"></span> 修改学生信息</strong></div>
   <div class="body-content">
 
 
@@ -23,7 +23,7 @@
           <label for="sitename">学号：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="stdid" name="stdid" size="50" maxlength="12" placeholder="请输入学号" data-validate="required:请输入学号" />       
+          <input type="text" class="input w50" id="stdid" name="stdid" readonly="readonly" size="50" maxlength="12" value="{$stdinfo.StdId}" />       
         </div>
       </div>  
 
@@ -33,7 +33,7 @@
           <label for="sitename">用户名</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="username" maxlength="16" maxlength="16" name="username" size="50" placeholder="请输入用户名" data-validate="required:请输入用户名" />       
+          <input type="text" class="input w50" id="username" readonly="readonly"  maxlength="16" name="username" size="50" value="{$stdinfo.UserName}" />       
         </div>
       </div>  
 
@@ -42,7 +42,7 @@
           <label for="sitename">密码：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" id="password" name="password" size="50" placeholder="请输入密码" data-validate="required:请输入密码" />       
+          <input type="password" class="input w50" id="password" name="password" maxlength="16" size="50" value="" placeholder="不填默认不修改密码" data-validate="length#>=6:密码不能小于6位"/>       
         </div>
       </div>  
 
@@ -51,7 +51,7 @@
           <label for="sitename">姓名：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="name" name="name" size="50" placeholder="请输入姓名" data-validate="required:请输入姓名" />       
+          <input type="text" class="input w50" id="name" name="name" size="50" value="{$stdinfo.Name}" placeholder="请输入姓名" data-validate="required:请输入姓名" />       
         </div>
       </div>     
        <div class="form-group">
@@ -59,19 +59,10 @@
           <label>性别：</label>
         </div>
         <div class="field">
-          <div class="button-group radio">
-          
-          <label class="button active">
-            <span class="icon icon-check"></span>             
-              <input name="sex" value="男" type="radio" data-validate="required:请选择性别" checked >男             
-          </label>             
-        
-          <label class="button active"><span class="icon icon-check"></span>            
-              <input name="sex" value="女"  type="radio" data-validate="required:请选择性别">女
-          </label>      
+         <input type="text" class="input w50" name="sex" maxlength="1"  size="50" value="{$stdinfo.Sex}"  placeholder="请输入性别" data-validate="required:请输入性别" />
            </div>
         </div>   
-     </div>
+    
 
 
     <div class="form-group">
@@ -79,7 +70,7 @@
           <label for="sitename">专业班级：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="class" name="class" size="50" placeholder="请输入专业班级,例如:信管1701" data-validate="required:请输入专业班级" />       
+          <input type="text" class="input w50" id="class" name="class" size="50" value="{$stdinfo.Class}" placeholder="请输入专业班级,例如:信管1701" data-validate="required:请输入专业班级" />       
         </div>
       </div>  
       <div class="form-group">

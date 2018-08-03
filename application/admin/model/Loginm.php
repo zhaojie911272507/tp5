@@ -19,6 +19,7 @@ class Loginm extends Model
   		{
         session('username',$user['UserName']);
         session('uid',$user['Id']);
+       
   			return 3;//信息正确
   		}
   		else

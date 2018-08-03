@@ -1,10 +1,9 @@
 <?php
 
 namespace app\admin\controller;
-use think\Controller;
 use app\admin\model\Stdinfo;
-
-class Addstd extends Controller
+use app\admin\controller\Base;//因为公用的控制器，已经继承了controller
+class Addstd extends Base
 { 
     public function index()
     {
@@ -83,6 +82,62 @@ class Addstd extends Controller
 		
 		
 	 }
+	 public function update()
+	{		
+		$id=input('id');
+	 	
+	 	$stdinfo=db('stdinfo')->find($id);//获取一条数据	
+	 	$this->assign('stdinfo',$stdinfo);
+	 
+			if(request()->isPost())//request判断是否表单已经提交过来，如果是POST表单提交过来的，就要处理数据，记得要加return
+			{
+				if (input('sex')!='男' && input('sex')!='女')
+				 {
+					$this->error('性别有误,重新修改');
+				}
+				if(input('password'))
+				{
+						$data=[
+					'Id'=>input('id'),
+					'PassWord'=>md5(input('password')),
+					'Name'=>input('name'),
+					'Sex'=>input('sex'),
+					'Class'=>input('class'),
+				];
+				}
+				else
+				{
+						$data=[
+					'Id'=>input('id'),
+					'PassWord'=>$stdinfo['PassWord'],
+					'Name'=>input('name'),
+					'Sex'=>input('sex'),
+					'Class'=>input('class'),
+				];
+				}
+				$result=db('stdinfo')->update($data);
+			if($result==0)//此处把Id写到了data数组里，所以此处省略了where
+			{
+				$this->error('您没有做任何修改');
+			}
+			else if($result>0)
+			{
+				$this->success('修改学生信息成功','liststd');
+			}
+			else
+			{
+				$this->error('修改学生信息失败');
+			}
+			 return ;//加一个return将不再显示下面的语句
+	 	}
+	 	return $this->fetch('update');	 
+	 
+	}
 
+	 public function logout()
+	 {
+	 	session(null);
+	 	$this->success('退出成功..','login/login');
+	 }
 
 }

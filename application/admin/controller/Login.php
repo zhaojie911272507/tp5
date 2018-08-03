@@ -4,7 +4,6 @@ namespace app\admin\controller;
 use think\Controller;
 use think\Db;
 use app\admin\model\Loginm;
-use app\admin\validate\Login as Validateuser;
 class Login extends Controller
 { 
     // public function index()
@@ -16,10 +15,10 @@ class Login extends Controller
       $member=new Loginm();
       $captcha=new \think\captcha\Captcha();
       $value=input('code');
-       $validate = new Validateuser;
+     
     	if(request()->isPost())
     	{
-    		if(!$validate->scene('login')->check($value))
+    		if(!$captcha->check($value))
             {
               $this->error('验证码错误');
             }
@@ -27,15 +26,15 @@ class Login extends Controller
             {
                 $data=input('post.');//接收所有post提交的数据
             
-            if ($member->login($data)==3) 
-            {
-               $this->success('登陆成功,正在为您跳转...','index/index');
-            }
-            else
-            {
-                $this->error('密码错误');
-            }
-            }
+                if ($member->login($data)==3) 
+                {
+                   $this->success('登陆成功,正在为您跳转...','index/index');
+                }
+                else
+                {
+                    $this->error('密码或用户名错误');
+                }
+          }
     		
     	}
         return $this->fetch('login');

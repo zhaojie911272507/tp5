@@ -44,7 +44,7 @@
       <div class="button-group">
       <a type="button" class="button border-main" href="{:url('links/update',array('id'=>$vo['Id']))}"><span class="icon-edit"></span>修改</a>
      
-       <a class="button border-red" href="{:url('links/del',array('id'=>$vo['Id']))}" onclick="warning('您确定要删除吗?','{:url('links/del',array('id'=>$vo['Id']))}')"><span class="icon-trash-o"></span>删除</a>
+       <a class="button border-red" href="{:url('links/del',array('id'=>$vo['Id']))}" onclick="return del()"><span class="icon-trash-o"></span>删除</a>
     
 
       </div>
@@ -54,6 +54,17 @@
   </table>
   {$links|raw}
   </div>
- 
-
+ <script type="text/javascript">
+  function del()
+  {
+    if(confirm("您确定要删除吗"))
+  {
+    return true;
+  }
+  else 
+  {
+    return false;
+  }
+}
+ </script>
 </body></html>

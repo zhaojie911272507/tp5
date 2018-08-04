@@ -9,7 +9,7 @@ class Links extends Controller
 { 
     
    
-	public function listadmin()
+	public function listlinks()
     {
     
     $list=LinksModel::paginate(6);  
@@ -48,7 +48,7 @@ class Links extends Controller
 			}
 			if(db('links')->insert($data))
 			{
-				return $this->success('添加链接成功','links/listadmin');
+				return $this->success('添加链接成功','links/listlinks');
 			}
 			else 
 			{
@@ -65,7 +65,7 @@ class Links extends Controller
 		$id=input('id');//返回的结果为获取的id
 			if(db('links')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
 			{
-				$this->success('删除链接成功','listadmin');
+				$this->success('删除链接成功','listlinks');
 			}
 			else
 			{
@@ -137,7 +137,7 @@ class Links extends Controller
 			}
 			if(db('links')->update($data))//此处把Id写到了data数组里，所以此处省略了where
 			{
-				$this->success('修改链接信息成功','listadmin');
+				$this->success('修改链接信息成功','listlinks');
 			}
 			else
 			{

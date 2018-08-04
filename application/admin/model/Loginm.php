@@ -7,9 +7,8 @@ use think\Db;
 class Loginm extends Model
 { 
   public function login($data)
-  {//验证码验证
-    
-
+  {
+   //验证码验证
   	$user=Db::table('admin')->where('UserName','=',$data['username'])->find(); //因为不是主键，所以要用where
 
   	if($user)

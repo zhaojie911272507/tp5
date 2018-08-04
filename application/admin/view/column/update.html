@@ -14,9 +14,10 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong><span class="icon-key"></span> 增加管理员</strong></div>
+  <div class="panel-head"><strong><span class="icon-key"></span> 修改管理员信息</strong></div>
   <div class="body-content">
 
+    <input type="hidden" value="{$admins.Id}" name="id">
 
     <form method="post" class="form-x" action="">
       <div class="form-group">
@@ -24,7 +25,7 @@
           <label for="sitename">用户名：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="username" name="username" size="50" placeholder="输入用户名" data-validate="required:输入用户名" />       
+          <input type="text" class="input w50" id="username" name="username" readonly="readonly" size="50" value="{$admins.UserName}" placeholder="修改当前用户名" data-validate="required:输入用户名" />       
         </div>
       </div>  
       <div class="form-group">
@@ -32,7 +33,7 @@
           <label for="sitename">密码：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="password" name="passname" size="50" placeholder="请输入密码" data-validate="required:请输入密码,length#>=5:密码不能小于5位" />         
+          <input type="password" class="input w50" id="password" name="password" maxlength="16" size="50" placeholder="不填默认为不修改密码" data-validate="不填默认不修改密码" />         
         </div>
       </div>
       <div class="form-group">
@@ -41,13 +42,10 @@
         </div>
         <div class="field">
           <button class="button bg-main icon-repeat" type="reset"> 取消</button>
-          <button class="button bg-main icon-check-square-o" type="submit"> 增加</button>   
+          <button class="button bg-main icon-check-square-o" type="submit"> 修改</button>   
         </div>
       </div>      
     </form>
-
-
-    
   </div>
 </div>
 </body></html>

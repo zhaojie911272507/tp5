@@ -9,17 +9,20 @@ class Addadmin extends Base
 { 
 	
 
-    public function addadmin()
-    {
-    	
-     return $this->fetch();
+     public function index()
+     {
+    	$list=Admin::paginate(6);  // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
+	    $count=$list->total();//获取总记录数
+	    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
+
+      	return $this->fetch('listadmin');
 	
-     }
+      }
    
 	public function listadmin()
     {
     	
-    $list=Admin::paginate(6);  
+    $list=Admin::paginate(6);
     // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
     $count=$list->total();//获取总记录数
     $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
@@ -83,9 +86,7 @@ class Addadmin extends Base
 		{
 			 $this->error('初始管理员不能删除'); 
 		}
-		
 	 }
-	
 	public function update()
 	{		
 		$id=input('id');
@@ -134,31 +135,39 @@ class Addadmin extends Base
 				$this->error('修改管理员信息失败');
 			}
 			 return ;//加一个return将不再显示下面的语句
-	}
+		}
 	 	
 	 	return $this->fetch('update');	 
 	 }
 
 	 public function delcheck()
 	{		
-		$id=input('id');//返回的结果为获取的id
-
-		if($id!=1)
-		{
-			if(db('admin')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+			if(request()->isPost())
 			{
-				$this->success('删除管理员成功','listadmin');
+				$id=input('id/a');//返回的结果为获取的id
+				foreach ($id as $value) 
+				{
+					if($value=='1'|| $value==$Request.session.uid)
+					{
+						$this->error('初始管理员不能删除');
+					}
+					else
+					{
+						if(db('admin')->delete(input('id/a')))//这里的$id是删除数据的数量,即此处删除了一条记录
+						{
+							$this->success('批量删除管理员成功','listadmin');
+						}
+						else
+						{
+							$this->error('批量删除管理员失败');
+						}
+					}
+				}
 			}
-			else
+			else 
 			{
-				$this->error('删除管理员失败');
+				$this->error('表单提交失败');
 			}
-		}
-		else
-		{
-			 $this->error('初始管理员不能删除'); 
-		}
-		
 	 }
 
 	 public function logout()

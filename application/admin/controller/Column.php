@@ -9,24 +9,24 @@ class Column extends Base
 { 
 	
 
-    public function addadmin()
-    {
-    	
-     return $this->fetch();
-	
-     }
    
-	public function listadmin()
+   
+	public function listcolumn()
     {
     	
     $list=ColumnModel::paginate(6);  
     // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
     $count=$list->total();//获取总记录数
-    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
+    $this->assign('column',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
 
      return $this->fetch();//渲染模板输出
 	
      }
+
+    public function column()
+    {
+    	return 	$this->fetch('column');
+    }
 
 
 	public function add()//添加
@@ -34,23 +34,25 @@ class Column extends Base
 		
 		if(request()->isPost())
 		{
-			// var_dump(input('post.'));
-			// return;
 			$validate = new Validateuser;
-			//$validate = new \think\Validate([//独立验证，在任何时候都可以使用Validate进行验证，注意实例化是要用完全限定名称，此时引用命名空间不合适，因为已经继承了一个类了
-			// 'UserName' => 'require|min:5',//用户名最小长度为5
-			// 'PassWord' => 'require|max:32'//密码最大长度为25
-			// ]);
 			$data=[
-			'UserName'=> input('username'),
-			'PassWord'=> md5(input('password')),
-
+			'Tit'=> input('title'),
+			'Pic'=> input('img'),
+			'Class'=> input('class'),
+			'OtClass'=> input(''),
+			'Desc'=> input('desc'),
+			'PassWord'=> input('password'),
+			'Sort'=> input('sort'),
+			'Time'=> input(''),
+			'Auth'=> input(''),
+			'Views'=> input(''),
+			'Edit'=> input(''),
 			];
 			if (!$validate->scene('add')->check($data)) {
 			$this->error($validate->getError());//此处也可以用dump($validate->getError())，用$this->error();打印出来的效果会好一些
 			die;  
 			}
-			if(db('admin')->insert($data))
+			if(db('column')->insert($data))
 			{
 				return $this->success('添加栏目成功','add');
 			}
@@ -70,9 +72,9 @@ class Column extends Base
 
 		if($id!=1)
 		{
-			if(db('admin')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+			if(db('column')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
 			{
-				$this->success('删除栏目成功','listadmin');
+				$this->success('删除栏目成功','listcolumn');
 			}
 			else
 			{
@@ -90,8 +92,8 @@ class Column extends Base
 	{		
 		$id=input('id');
 	 	
-	 	$admins=db('admin')->find($id);//获取一条数据	
-	 	$this->assign('admins',$admins);
+	 	$admins=db('column')->find($id);//获取一条数据	
+	 	$this->assign('column',$admins);
 		if(request()->isPost())//request判断是否表单已经提交过来，如果是POST表单提交过来的，就要处理数据，记得要加return
 		{
 			if(input('password'))
@@ -125,9 +127,9 @@ class Column extends Base
 			{
 				$this->error($validate->getError());die;
 			}
-			if(db('admin')->update($data))//此处把Id写到了data数组里，所以此处省略了where
+			if(db('column')->update($data))//此处把Id写到了data数组里，所以此处省略了where
 			{
-				$this->success('修改栏目信息成功','listadmin');
+				$this->success('修改栏目信息成功','listcolumn');
 			}
 			else
 			{
@@ -145,9 +147,9 @@ class Column extends Base
 
 		if($id!=1)
 		{
-			if(db('admin')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+			if(db('column')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
 			{
-				$this->success('删除栏目成功','listadmin');
+				$this->success('删除栏目成功','listcolumn');
 			}
 			else
 			{

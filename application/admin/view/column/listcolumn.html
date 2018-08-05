@@ -10,35 +10,38 @@
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
     <script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
     <script src="__PUBLIC__/static/admin/style/js/pintuer.js"></script>  
-
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder">管理员列表</strong></div>
-  <form method="post" class="form-x" action="{:url('addadmin/delcheck')}">
+  <div class="panel-head"><strong class="icon-reorder"> 管理员列表</strong></div>
 <div class="padding border-bottom">
       <ul class="search">
         <li>
           <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
            <a class="button border-yellow" href="{:url('addadmin/add')}"><span class="icon-plus-square-o"></span> 添加成员</a>
-          <button type="submit" onclick="return DelSelect()" href="javascript:void(0)" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+          <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
         </li>
       </ul>
     </div>
   <table class="table table-hover text-center">
     <tr>
-      <th width="5%">ID</th>
-      <th>管理员名称</th>
-      <th>注册时间</th>
-      <th width="250">操作</th>
+      <th width="5%">ID</th>     
+      <th>标题</th>  
+      <th>图片</th>
+      <th width="250">分类</th>
+      <th>其他属性</th>
+      <th>描述</th>
+      <th>内容</th>
+      <th>排序</th>
+      <th>作者</th>
+      <th>点击次数</th>
+      <th>编辑内容</th>
     </tr>
-   {volist name='guanliyuan' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
+   {volist name='column' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
-    
-       <td><input id="check" type="checkbox" name="id[]" value="{$vo.Id}" />
+       <td><input type="checkbox" name="id[]" value="1" />
             {$vo.Id}</td>
-      
-    
+          
       <td>{$vo.UserName}</td>
       <td>{$vo.TimeStamp}</td>
       <td>
@@ -56,9 +59,8 @@
     </tr> 
     {/volist}
   </table>
-  {$guanliyuan|raw}
+  {$column|raw}
   </div>
-</form>
  <script type="text/javascript">
 
 function del(){
@@ -75,7 +77,6 @@ function del(){
 $("#checkall").click(function(){ 
   $("input[name='id[]']").each(function(){
     if (this.checked) {
-       
       this.checked = false;
     }
     else {

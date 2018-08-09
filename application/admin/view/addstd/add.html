@@ -18,12 +18,12 @@
 
 
     <form method="post" class="form-x" action="">
- <div class="form-group">
+    <div class="form-group">
         <div class="label">
           <label for="sitename">学号：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="stdid" name="stdid" size="50" maxlength="12" placeholder="请输入学号" data-validate="required:请输入学号" />       
+          <input type="text" class="input w50" id="stdid" name="stdid" size="50" maxlength="12" placeholder="请输入学号" data-validate="required:请输入学号,length#>=11:学号为12位数字" />       
         </div>
       </div>  
 
@@ -42,7 +42,7 @@
           <label for="sitename">密码：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" id="password" name="password" size="50" placeholder="请输入密码" data-validate="required:请输入密码" />       
+          <input type="password" class="input w50" id="password" name="password" size="50" placeholder="请输入密码" data-validate="required:请输入密码 length#>=5:密码不能小于5位" />       
         </div>
       </div>  
 
@@ -53,7 +53,15 @@
         <div class="field">
           <input type="text" class="input w50" id="name" name="name" size="50" placeholder="请输入姓名" data-validate="required:请输入姓名" />       
         </div>
-      </div>     
+      </div>   
+      <div class="form-group">
+        <div class="label">
+          <label for="sitename">入学年份：</label>
+        </div>
+        <div class="field">
+          <input type="date" class="input w50" name="grade" size="50" placeholder="输入年级" data-validate="required:输入年级" />       
+        </div>
+      </div>  
        <div class="form-group">
         <div class="label">
           <label>性别：</label>

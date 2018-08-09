@@ -11,7 +11,7 @@ class Addadmin extends Base
 
      public function index()
      {
-    	$list=Admin::paginate(6);  // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
+    	$list = Db::name('admin')->order('Id','desc')->paginate(4); // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
 	    $count=$list->total();//获取总记录数
 	    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
 
@@ -21,20 +21,18 @@ class Addadmin extends Base
    
 	public function listadmin()
     {
-    	
-    $list=Admin::paginate(6);
-    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
-    $count=$list->total();//获取总记录数
-    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
+	    $list = Db::name('admin')->order('Id','desc')->paginate(4);
+	    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
+	    $count=$list->total();//获取总记录数
+	    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
 
-     return $this->fetch();//渲染模板输出
-	
+	     return $this->fetch();//渲染模板输出
+		
      }
 
 
 	public function add()//添加
 	{
-		
 		if(request()->isPost())
 		{
 			// var_dump(input('post.'));
@@ -55,7 +53,7 @@ class Addadmin extends Base
 			}
 			if(db('admin')->insert($data))
 			{
-				return $this->success('添加管理员成功','add');
+				return redirect('listadmin');
 			}
 			else 
 			{
@@ -66,7 +64,31 @@ class Addadmin extends Base
 			return $this->fetch('add');
 
 	}
+			public function upload()
+			{
+				// 获取表单上传文件 例如上传了001.jpg
+				$file = request()->file('image');
+				// 移动到框架应用根目录/uploads/ 目录下
 
+				$info = $file->move( 'static/uploads');
+				if($info)
+				{
+					// 成功上传后 获取上传信息
+					// 输出 jpg
+					echo $info->getExtension();
+					// 输出 20160820/42a79759f284b767dfcb2a0197904287.jpg
+					echo $info->getSaveName();
+					// 输出 42a79759f284b767dfcb2a0197904287.jpg
+					echo $info->getFilename();
+				}
+				else
+				{
+					// 上传失败获取错误信息
+					echo $file->getError();
+				}
+				die;
+		}
+		
 	public function del()
 	{		
 		$id=input('id');//返回的结果为获取的id
@@ -75,7 +97,8 @@ class Addadmin extends Base
 		{
 			if(db('admin')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
 			{
-				$this->success('删除管理员成功','listadmin');
+			return redirect('listadmin');
+				
 			}
 			else
 			{
@@ -128,7 +151,7 @@ class Addadmin extends Base
 			}
 			if(db('admin')->update($data))//此处把Id写到了data数组里，所以此处省略了where
 			{
-				$this->success('修改管理员信息成功','listadmin');
+				return redirect('listadmin');
 			}
 			else
 			{
@@ -147,7 +170,7 @@ class Addadmin extends Base
 				$id=input('id/a');//返回的结果为获取的id
 				foreach ($id as $value) 
 				{
-					if($value=='1'|| $value==$Request.session.uid)
+					if($value=='1')
 					{
 						$this->error('初始管理员不能删除');
 					}
@@ -155,7 +178,7 @@ class Addadmin extends Base
 					{
 						if(db('admin')->delete(input('id/a')))//这里的$id是删除数据的数量,即此处删除了一条记录
 						{
-							$this->success('批量删除管理员成功','listadmin');
+							return redirect('listadmin');
 						}
 						else
 						{

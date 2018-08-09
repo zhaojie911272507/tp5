@@ -7,29 +7,102 @@ use app\admin\validate\Column as Validateuser;
 use app\admin\controller\Base;//因为公用的控制器，已经继承了controller
 class Column extends Base
 { 
-	
-
-   
-   
 	public function listcolumn()
     {
     	
-    $list=ColumnModel::paginate(6);  
-    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
+    $list = Db::name('column')->order('Id','desc')->paginate(5);
     $count=$list->total();//获取总记录数
     $this->assign('column',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
 
      return $this->fetch();//渲染模板输出
 	
      }
+	public function addcol()//添加导航栏目
+	{
+		
+		if(request()->isPost())
+		{
+			$validate =new Validateuser;
+			$data=[
+			'Cname'=> input('cname'),
+			];
+				if(db('column')->insert($data))
+				{
+					return $this->success('添加栏目成功','listcolumn');
+				}
+				else 
+				{
+					return $this->error('添加栏目失败');	
+				}
+		
+		}
+			return $this->fetch('addcol');
 
-    public function column()
-    {
-    	return 	$this->fetch('column');
-    }
-
-
-	public function add()//添加
+		}
+		public function delcol()
+		{		
+				$id=input('id');//返回的结果为获取的id
+				if(db('column')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+				{
+					$this->success('删除栏目成功','listcolumn');
+				}
+				else
+				{
+					$this->error('删除栏目失败');
+				}
+		 }
+		public function updatecol()
+		{		
+			$id=input('id');
+		 	$column=db('column')->find($id);//获取一条数据	
+		 	$this->assign('column',$column);
+		 	$data=[
+				'Id'=>input('id'),
+				'Cname'=>input('cname'),	
+				];
+				// dump($_POST);die;
+				dump($data);die;
+		 	if(request()->post())
+		 	{
+		 		$data=[
+				'Id'=>input('id'),
+				'Cname'=>input('cname'),	
+				];
+				dump($data);die;
+		 	}
+		 	else
+		 	{
+		 		$this->error('表单提交失败');
+		 	}
+			$validate = new Validateuser;
+			if(!$validate->scene('updatecol')->check($data))
+			{
+				$this->error($validate->getError());die;
+			}
+			if(db('column')->update($data))//此处把Id写到了data数组里，所以此处省略了where
+			{
+				return redirct('listcolumn');
+			}
+			else
+			{
+				$this->error('修改栏目信息失败');
+			}
+			 return ;//加一个return将不再显示下面的语句
+			return $this->fetch('listcolumn');
+		}
+		 public function delcheck()
+		{		
+			$id=input('id');//返回的结果为获取的id
+			if(db('column')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
+			{
+				$this->success('删除栏目成功','listcolumn');
+			}
+			else
+			{
+				$this->error('删除栏目失败');
+			}
+	 	}
+	public function addcolcontent()//添加
 	{
 		
 		if(request()->isPost())
@@ -43,10 +116,10 @@ class Column extends Base
 			'Desc'=> input('desc'),
 			'PassWord'=> input('password'),
 			'Sort'=> input('sort'),
-			'Time'=> input(''),
-			'Auth'=> input(''),
-			'Views'=> input(''),
-			'Edit'=> input(''),
+			'Time'=> input('time'),
+			'Auth'=> input('auth'),
+			'Views'=> input('view'),
+			'Edit'=> input('edit'),
 			];
 			if (!$validate->scene('add')->check($data)) {
 			$this->error($validate->getError());//此处也可以用dump($validate->getError())，用$this->error();打印出来的效果会好一些
@@ -66,102 +139,7 @@ class Column extends Base
 
 	}
 
-	public function del()
-	{		
-		$id=input('id');//返回的结果为获取的id
-
-		if($id!=1)
-		{
-			if(db('column')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
-			{
-				$this->success('删除栏目成功','listcolumn');
-			}
-			else
-			{
-				$this->error('删除栏目失败');
-			}
-		}
-		else
-		{
-			 $this->error('初始栏目不能删除'); 
-		}
-		
-	 }
 	
-	public function update()
-	{		
-		$id=input('id');
-	 	
-	 	$admins=db('column')->find($id);//获取一条数据	
-	 	$this->assign('column',$admins);
-		if(request()->isPost())//request判断是否表单已经提交过来，如果是POST表单提交过来的，就要处理数据，记得要加return
-		{
-			if(input('password'))
-			{
-				$data=[
-				'Id'=>input('id'),
-				'UserName'=>input('username'),	
-				'PassWord'=>md5(input('password')),
-			];
-			}
-			else
-			{
-				$data=[
-				'Id'=>input('id'),
-				'UserName'=>input('username'),
-			];
-			}
-			//	
-			// if(input('password'))
-			// {
-			// 	$data['PassWord']
-			// 	=md5(input('password'));
-			// }
-			// else
-			// {
-			// 	$data['PassWord']=$admins['PassWord'];
-			// }
-			//验证场景
-			$validate = new Validateuser;
-			if(!$validate->scene('update')->check($data))
-			{
-				$this->error($validate->getError());die;
-			}
-			if(db('column')->update($data))//此处把Id写到了data数组里，所以此处省略了where
-			{
-				$this->success('修改栏目信息成功','listcolumn');
-			}
-			else
-			{
-				$this->error('修改栏目信息失败');
-			}
-			 return ;//加一个return将不再显示下面的语句
-	}
-	 	
-	 	return $this->fetch('update');	 
-	 }
-
-	 public function delcheck()
-	{		
-		$id=input('id');//返回的结果为获取的id
-
-		if($id!=1)
-		{
-			if(db('column')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
-			{
-				$this->success('删除栏目成功','listcolumn');
-			}
-			else
-			{
-				$this->error('删除栏目失败');
-			}
-		}
-		else
-		{
-			 $this->error('初始栏目不能删除'); 
-		}
-		
-	 }
 
 	 public function logout()
 	 {

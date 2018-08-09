@@ -28,7 +28,7 @@ class Login extends Controller
             
                 if ($member->login($data)==3) 
                 {
-                   $this->success('登陆成功,正在为您跳转...','index/index');
+                   return redirect('admin/index/index');
                 }
                 else
                 {

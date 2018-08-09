@@ -16,7 +16,7 @@ class Pass extends Controller
 			if(input('password') && $admins['PassWord']==md5(input('password')))
 			{
 				// $data=['PassWord'=>input('newpassword'),];
-				$data=[
+			$data=[
 			'UserName'=> input('$id'),
 			'PassWord'=> md5(input('password')),
 			];

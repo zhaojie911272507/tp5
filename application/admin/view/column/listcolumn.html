@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title>管理员信息列表</title>  
+    <title></title>  
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/pintuer.css">
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
     <script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
@@ -13,56 +13,72 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder"> 管理员列表</strong></div>
-<div class="padding border-bottom">
+<form method="post" class="form-x" id="form1" action="{:url('Column/updatecol')}">
+  <div class="panel-head"><strong class="icon-reorder"> 栏目列表</strong></div>
+    <input type="text" id="cname" name="cname" class="input" value="" size="10"/> 
+  <div class="padding border-bottom">
       <ul class="search">
         <li>
           <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
-           <a class="button border-yellow" href="{:url('addadmin/add')}"><span class="icon-plus-square-o"></span> 添加成员</a>
-          <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+           <a class="button border-yellow" href="{:url('column/addcol')}"><span class="icon-plus-square-o"></span> 添加栏目</a>
+          <button type="submit" onclick="return DelSelect()" href="{:url('column/delcheck')}" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
         </li>
       </ul>
     </div>
   <table class="table table-hover text-center">
     <tr>
-      <th width="5%">ID</th>     
-      <th>标题</th>  
-      <th>图片</th>
-      <th width="250">分类</th>
-      <th>其他属性</th>
-      <th>描述</th>
-      <th>内容</th>
-      <th>排序</th>
-      <th>作者</th>
-      <th>点击次数</th>
-      <th>编辑内容</th>
+      <th width="10%">ID</th>     
+      <th>栏目名称</th> 
+      <th>是否显示</th>
+      <th>操作</th>
     </tr>
    {volist name='column' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
-       <td><input type="checkbox" name="id[]" value="1" />
-            {$vo.Id}</td>
-          
-      <td>{$vo.UserName}</td>
-      <td>{$vo.TimeStamp}</td>
+      <td width="10%"><input type="checkbox" name="id[]" value="1" />{$vo.Id}</td>
+      <td>
+   
+      <input type="text" id="btn1" name="cname" class="input" value="{$vo.Cname}" size="10" placeholder="请输入栏目名称" data-validate="required:请输入栏目名称" />  
+           
+      </td>
+       <td>
+            {if $vo.Status==1 }
+            <option value="1">是</option>
+            {elseif $vo.Status==0}
+            <option value="0">否</option>
+            {/if}
+        </td>
       <td>
       <div class="button-group">
-      <a type="button" class="button border-main" href="{:url('addadmin/update',array('id'=>$vo['Id']))}"><span class="icon-edit"></span>修改</a>
-
-
-      {if $vo.Id !=1 && $vo.Id != $Request.session.uid}
-       <a class="button border-red"  onclick="return del()" href="{:url('addadmin/del',array('id'=>$vo['Id']))}"><span class="icon-trash-o"></span>删除</a>
-      {/if}
-
- 
+      <a type="submit"  class="button border-main" onclick="return updatecol()" href="{:url('column/updatecol',array('id'=>$vo.Id,'Cname'=>input('cname')))}"><span class="icon-edit"></span>修改</a>
+       <a class="button border-red"  onclick="return del()" href="{:url('column/delcol',array('id'=>$vo['Id']))}"><span class="icon-trash-o"></span>删除</a>
       </div>
       </td>
     </tr> 
     {/volist}
   </table>
-  {$column|raw}
   </div>
+  <table width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="30%"></th>
+    <th width="40%"> {$column|raw}</th>
+    <th width="30%"></th>
+  </tr>
+</table>
+
+</form>
  <script type="text/javascript">
 
+function updatecol(){
+  getElementById('cname').innerHTML=getElementById('btn1');
+  if(confirm("您确定要修改吗?"))
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 function del(){
   if(confirm("您确定要删除吗?\n\n请确认！"))
   {
@@ -76,14 +92,14 @@ function del(){
 
 $("#checkall").click(function(){ 
   $("input[name='id[]']").each(function(){
-    if (this.checked) {
+    if (this.checked){
       this.checked = false;
-    }
-    else {
+    }else {
       this.checked = true;
     }
   });
 })
+
 
 function DelSelect(){
   var Checkbox=false;
@@ -102,6 +118,11 @@ function DelSelect(){
   }
 }
 
+function check()
+{
+
+  alert(status.value);
+}
 </script>
 
 </body></html>

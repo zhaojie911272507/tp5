@@ -19,17 +19,8 @@ class Loginm extends Model
         session('username',$user['UserName']);
         session('uid',$user['Id']);
         $member=db('stdinfo')->find(session('uid'));
-       if(session('username')==$member.UserName)
-       {
         return 3;//信息正确
-       }
-  			else
-        {
-          return redirect('member/login/index')
-        }
-  		}
-  		else
-  		{
+       }else{
   			return 2;//密码错误 
   		}
   	}

@@ -6,10 +6,6 @@ use think\Db;
 use app\admin\model\Loginm;
 class Login extends Controller
 { 
-    // public function index()
-    // {
-    //     return $this->fetch('login');
-    // }
     public function index()
     {
       $member=new Loginm();
@@ -44,7 +40,7 @@ class Login extends Controller
      public function logout()
      {
         session(null);
-        $this->success('退出成功','login/index');
+        return redirect('admin/login/index');
      }
 
 

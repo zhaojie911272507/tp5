@@ -9,7 +9,6 @@ class Column extends Base
 { 
 	public function listcolumn()
     {
-    	
     $list = Db::name('column')->order('Id','desc')->paginate(5);
     $count=$list->total();//获取总记录数
     $this->assign('column',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
@@ -55,12 +54,13 @@ class Column extends Base
 		{		
 			$id=input('id');
 		 	$column=db('column')->find($id);//获取一条数据	
+
 		 	$this->assign('column',$column);
+
 		 	$data=[
 				'Id'=>input('id'),
 				'Cname'=>input('cname'),	
 				];
-				// dump($_POST);die;
 				dump($data);die;
 		 	if(request()->post())
 		 	{
@@ -138,13 +138,5 @@ class Column extends Base
 			return $this->fetch('add');
 
 	}
-
-	
-
-	 public function logout()
-	 {
-	 	session(null);
-	 	$this->success('退出成功..','login/login');
-	 }
 }
  

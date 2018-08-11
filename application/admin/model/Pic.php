@@ -6,6 +6,10 @@ use think\Model;
 class Pic extends Model
 { 
   
+	public function unlink($path)
+	{
+		return  is_file($path) && unlink($path);
+	}
 
 }
  

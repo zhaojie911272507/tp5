@@ -1,3 +1,4 @@
+<?php /*a:1:{s:67:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\pic\pic.html";i:1533812706;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -6,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/pintuer.css">
-<link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
-<script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
-<script src="__PUBLIC__/static/admin/style/js/pintuer.js"></script>
+<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
+<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
+<script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>
+<script src="http://127.0.0.1/tp5/public/static/admin/style/js/pintuer.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
@@ -25,25 +26,25 @@
       <th width="20%">alt</th>
       <th width="15%">操作</th>
     </tr>
-   {volist name='lunbotu' id='vo'}
+   <?php if(is_array($lunbotu) || $lunbotu instanceof \think\Collection || $lunbotu instanceof \think\Paginator): $i = 0; $__LIST__ = $lunbotu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
     <tr>
-      <td>{$vo.Id}</td>  
-      <td>{$vo.Sort}</td>   
-      <td><img src="__PUBLIC__/static/uploads/{$vo.Pic}" alt="{$vo.Alt}" width="120" height="50" /></td>     
-      <td>{$vo.Alt}</td>
+      <td><?php echo htmlentities($vo['Id']); ?></td>  
+      <td><?php echo htmlentities($vo['Sort']); ?></td>   
+      <td><img src="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($vo['Pic']); ?>" alt="<?php echo htmlentities($vo['Alt']); ?>" width="120" height="50" /></td>     
+      <td><?php echo htmlentities($vo['Alt']); ?></td>
       <td><div class="button-group">
-      <a class="button border-main" href="{:url('pic/update',array('id'=>$vo['Id']))}"><span class="icon-edit"></span> 修改</a>
-      <a class="button border-red" onclick="return del()" href="{:url('pic/del',array('id'=>$vo['Id']))}" ><span class="icon-trash-o"></span> 删除</a>
+      <a class="button border-main" href="<?php echo url('pic/update',array('id'=>$vo['Id'])); ?>"><span class="icon-edit"></span> 修改</a>
+      <a class="button border-red" onclick="return del()" href="<?php echo url('pic/del',array('id'=>$vo['Id'])); ?>" ><span class="icon-trash-o"></span> 删除</a>
       </div></td>
     </tr>
-    {/volist}
+    <?php endforeach; endif; else: echo "" ;endif; ?>
   </table>
 </div>
 
  <table width="100%" border="0" cellpadding="0" cellspacing="0">
   <tr>
     <th width="30%"></th>
-    <th width="40%">{$lunbotu|raw}</th>
+    <th width="40%"><?php echo $lunbotu; ?></th>
     <th width="30%"></th>
   </tr>
 </table>
@@ -63,7 +64,7 @@ function del()
 <div class="panel admin-panel margin-top" id="add">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" enctype="multipart/form-data" action="{:url('pic/add')}">    
+    <form method="post" class="form-x" enctype="multipart/form-data" action="<?php echo url('pic/add'); ?>">    
         <div class="form-group">
         <div class="label">
           <label>排序：</label>

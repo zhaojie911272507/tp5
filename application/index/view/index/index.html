@@ -64,25 +64,14 @@
 <div class="touch-menu" skinobjectzone="menu_3142">
 <ul>
 <li><a href="/"><span>首页</span></a></li>
-<li><a href="javascript:;"><span>关于我们</span><i class="touch-arrow-down"></i></a>
-<ul>
-<li><a href="/a/guanyuwomen/gongsijianjie/"><span>公司简介</span></a></li>
-<li><a href="/a/guanyuwomen/shengchanjidi/"><span>旗下网站</span></a></li>
-<li><a href="/a/guanyuwomen/zizhirongyu/"><span>企业文化</span></a></li>
-</ul>
-<li><a href="javascript:;"><span>新闻动态</span><i class="touch-arrow-down"></i></a>
-
-<li><a href="javascript:;"><span>产品中心</span><i class="touch-arrow-down"></i></a>
-<ul>
-<li><a href="/a/chanpinzhongxin/chanpinfenleiyi/"><span>整站建设</span></a></li>
-<li><a href="/a/chanpinzhongxin/chanpinfenleier/"><span>软件开发</span></a></li>
-</ul><li><a href="javascript:;"><span>APP开发</span><i class="touch-arrow-down"></i></a>
-<ul>
-</ul><li><a href="javascript:;"><span>技术服务</span><i class="touch-arrow-down"></i></a>
-<ul>
-<li><a href="/a/jishufuwu/yanjiuchengguo/"><span>研究成果</span></a></li>
-</ul>
-<li><a href="/a/lianxiwomen/"><span>联系我们</span></a></li>
+{volist  name='nav' id='vo'}
+<li class="">
+  <a class="first-level" href="#" target="_blank">
+    <strong>{$vo.Cname}</strong>
+  </a>
+  <i></i>
+</li>
+{/volist}
 </ul>
 </div>
 </div>
@@ -127,22 +116,11 @@
 <div class="slideshow carousel clearfix" style="height:550px; overflow:hidden;">
 <div id="carousel-89207">
 <!--幻灯片-->
+{volist name='lbt' id='vo'}
 <div class="carousel-item">
-<div class="carousel-img"><a href="javascript:;" target=""><img src="__PUBLIC__/static/index/image/18.png" height="550" alt="幻灯3"/></a></div>
+<div class="carousel-img"><a href="javascript:;" target=""><img src="__PUBLIC__/static/uploads/{$vo.Pic}" height="550" alt="{$vo.Alt}"/></a></div>
 </div>
-<div class="carousel-item">
-<div class="carousel-img"><a href="javascript:;" target=""><img src="__PUBLIC__/static/index/image/banner1.jpg" height="550" alt="幻灯2"/></a></div>
-</div>
-<div class="carousel-item">
-<div class="carousel-img"><a href="javascript:;" target=""><img src="__PUBLIC__/static/index/image/banner5.jpg" height="550" alt="幻灯1"/></a></div>
-</div>
-<div class="carousel-item">
-<div class="carousel-img"><a href="javascript:;" target=""><img src="__PUBLIC__/static/index/image/8.png" height="550" alt="幻灯3"/></a></div>
-</div>
-<div class="carousel-item">
-<div class="carousel-img"><a href="javascript:;" target=""><img src="__PUBLIC__/static/index/image/banner4.png" height="550" alt="幻灯3"/></a></div>
-</div>
-
+{/volist}
 </div>
 <div class="carousel-btn carousel-btn-fixed" id="carousel-page-89207"></div>
 </div>
@@ -180,15 +158,15 @@
 
 <li>
 <div class="scrollable-item">
-<p class="scrollable-img"><a target="_blank" href="/a/chanpinzhongxin/chanpinfenleiyi/20160823/8.html"><img src="__PUBLIC__/static/index/image/1-160R3230J60-L.jpg" alt="NP-2012断乳宝"/></a></p>
-<h2><a target="_blank" href="/a/chanpinzhongxin/chanpinfenleiyi/20160823/8.html">NP-2012断乳宝</a></h2>
+<p class="scrollable-img"><a target="_blank" href=""><img src="__PUBLIC__/static/index/image/1-160R3230J60-L.jpg" alt="NP-2012断乳宝"/></a></p>
+<h2><a target="_blank" href="">NP-2012断乳宝</a></h2>
 </div>
 </li>
 
 <li>
 <div class="scrollable-item">
-<p class="scrollable-img"><a target="_blank" href="/a/chanpinzhongxin/chanpinfenleiyi/20160823/7.html"><img src="__PUBLIC__/static/index/image/1-160R3230G20-L.jpg" alt="NP-2010母子康"/></a></p>
-<h2><a target="_blank" href="/a/chanpinzhongxin/chanpinfenleiyi/20160823/7.html">NP-2010母子康</a></h2>
+<p class="scrollable-img"><a target="_blank" href=""><img src="__PUBLIC__/static/index/image/1-160R3230G20-L.jpg" alt="NP-2010母子康"/></a></p>
+<h2><a target="_blank" href="">NP-2010母子康</a></h2>
 </div>
 </li>
 

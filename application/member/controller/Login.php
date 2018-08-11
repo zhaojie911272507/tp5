@@ -44,7 +44,7 @@ class Login extends Controller
      public function logout()
      {
         session(null);
-        $this->success('退出成功','member/login/index');
+        return redirect('member/login/index');
      }
 
 

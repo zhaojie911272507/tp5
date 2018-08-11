@@ -8,14 +8,16 @@
 <ul class="sf-menu">
 <li class='current'><a class="first-level" href="/" target=""><strong>首页</strong></a><i></i>
 </li>
+{volist  name='nav' id='vo'}
 <li class="">
-	<a class="first-level" href="http://www.chuanke.com/s2260700.html" target="_blank">
-		<strong>业务范围</strong>
+	<input type="hidden" name="id" value="{$vo.Id}"/>
+	<a class="first-level" href="" target="_blank">
+		<strong>{$vo.Cname}</strong>
 	</a>
-	<i>
-	</i>
+	<i></i>
 </li>
-<li class="">
+{/volist}
+<!-- <li class="">
 	<a class="first-level" href="/a/guanyuwomen/gongsijianjie/" target=""><strong>关于我们</strong></a><i></i>
 		<ul class="">
 		<li class=""><a class="" href="" target=""><strong>公司简介</strong></a></i></li>
@@ -42,7 +44,8 @@
 </li>
 <li class="">
 <a class="first-level" href="" target=""><strong>联系我们</strong></a><i></i>
-<ul class=""></ul></li></ul>
+<ul class=""></ul></li> -->
+</ul>
 </div>
 </nav>
   

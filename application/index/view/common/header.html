@@ -1,68 +1,30 @@
-<header class="top header-v1 desktops-section default-top">   
-<div class="top-main">
-<div class="page-width clearfix">
-<div class="logo" skinobjectzone="HtmlLogo_399"><a href="/"></a></div>
-  
-<nav class="nav">
-<div class="main-nav clearfix" skinobjectzone="menu_461">
-<ul class="sf-menu">
-<li class='current'><a class="first-level" href="/" target=""><strong>首页</strong></a><i></i>
-</li>
-{volist  name='nav' id='vo'}
-<li class="">
-	<input type="hidden" name="id" value="{$vo.Id}"/>
-	<a class="first-level" href="" target="_blank">
-		<strong>{$vo.Cname}</strong>
-	</a>
-	<i></i>
-</li>
-{/volist}
-<!-- <li class="">
-	<a class="first-level" href="/a/guanyuwomen/gongsijianjie/" target=""><strong>关于我们</strong></a><i></i>
-		<ul class="">
-		<li class=""><a class="" href="" target=""><strong>公司简介</strong></a></i></li>
-		<li class=""><a class="" href="" target=""><strong>旗下网站</strong></a></i></li>
-		<li class=""><a class="" href="" target=""><strong>企业文化</strong></a></i></li>
-		</ul>
-</li>
-
-<li class="">
-	<a class="first-level" href="" target=""><strong>新闻动态</strong></a><i></i>
-</li>
-
-<li class="">
-	<a class="first-level" href="" target=""><strong>产品服务</strong></a><i></i>
-		<ul class="">
-			<li class=""><a class="" href="" target=""><strong>整站建设</strong></a></i></li>
-			<li class=""><a class="" href="" target=""><strong>软件开发</strong></a></i></li>
-			<li class=""><a class="" href="" target=""><strong>APP开发</strong></a></i></li>
-		</ul>
-</li>
-<li class="">
-	<a class="first-level" href="" target=""><strong>技术服务</strong></a><i></i>
-	<ul class=""><li class=""><a class="" href="" target=""><strong>研究成果</strong></a></i></li></ul>
-</li>
-<li class="">
-<a class="first-level" href="" target=""><strong>联系我们</strong></a><i></i>
-<ul class=""></ul></li> -->
-</ul>
-</div>
-</nav>
-  
-<div class="language float-right" skinobjectzone="HtmlLanguage_1268">
-
-<ul class="sf-menu">
-<li><a href="javascript:;" class="first-level"><span><em>登录</em></span></a><ul>
-<li><a href="index.php/admin/login/index.html"><span><em>管理员登录</em></span></a></li>
-<li><a href="index.php/member/login/index.html"><span><em>成员登录</em></span></a></li>
-</ul>
-</li>
-</ul>
-</div>
-
- </div>
-</div>
- 
-<div class="clear"></div>
-</header>
- 
+		<header>
+			<div class="container_12">
+				<div class="grid_12">
+					<h1><a href="{:url('index/index')}"><img src="__PUBLIC__/static/index/images/logo.png" alt="Boo House"></a></h1>
+					<div class="menu_block">
+						<nav id="bt-menu" class="bt-menu">
+							<a href="#" class="bt-menu-trigger"><span>Menu</span></a>
+							<ul>
+								<li class="current bt-icon"><a href="{:url('index/index')}">首页</a></li>
+								<li class="bt-icon"><a href="{:url('aboutus/aboutus')}" target="_blank">关于我们</a></li>
+								<li class="bt-icon"><a href="{:url('services/services')}">技术服务</a></li>
+								<li class="bt-icon"><a href="{:url('project/project')}">项目工程</a></li>
+								<li class="bt-icon"><a href="{:url('blog/blog')}">博客新闻</a></li>
+								<li class="bt-icon"><a href="{:url('contact/contact')}">联系我们</a></li>
+							</ul>
+						</nav>
+						<!-- <form method="get" action="{:url('search/search')}">
+							<div>
+								<span class="input-icon">
+                                    <input type="text" class="form-control" id="fontawsome-search" placeholder="Search">
+                                    <input type="submit" name="keywords" value="搜索">
+                                    <i class="glyphicon glyphicon-search circular blue"></i>
+                                </span></div>
+							</form> -->
+						<div class="clear"></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</header>

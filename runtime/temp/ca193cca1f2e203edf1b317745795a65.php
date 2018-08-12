@@ -1,4 +1,4 @@
-<?php /*a:1:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\info\update.html";i:1533734674;}*/ ?>
+<?php /*a:1:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\info\update.html";i:1534041941;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -17,7 +17,7 @@
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 网站信息</strong></div>
   <div class="body-content">
  
-    <form method="post" class="form-x" action="<?php echo url('info/upload'); ?>" enctype="multipart/form-data">
+    <form method="post" class="form-x" action="<?php echo url('info/update'); ?>" enctype="multipart/form-data">
         <input type="hidden" value="<?php echo htmlentities($webinfo['Id']); ?>" name="id">
       <div class="form-group">
         <div class="label">

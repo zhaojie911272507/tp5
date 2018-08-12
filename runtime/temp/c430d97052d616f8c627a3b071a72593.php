@@ -1,4 +1,4 @@
-<?php /*a:1:{s:76:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\listproject.html";i:1533732835;}*/ ?>
+<?php /*a:1:{s:76:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\listproject.html";i:1533993567;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
     <title></title>  
+     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
     <script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>

@@ -1,4 +1,4 @@
-<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\index.html";i:1533715719;s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1533207076;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1533729532;}*/ ?>
+<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\index.html";i:1534040216;s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1533207076;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1533729532;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -67,7 +67,7 @@ $(function(){
 });
 </script>
 <ul class="bread">
-  <li><a href="<?php echo url('index/index'); ?>" target="right" class="icon-home">首页</a></li>
+  <li><a href="<?php echo url('index/info'); ?>" target="right" class="icon-home">首页</a></li>
   <li><a href="##" id="a_leader_txt">网站信息</a></li>
   <li><b>当前语言：</b><span style="color:red;">中文</php></span>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a> </li>

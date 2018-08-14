@@ -17,7 +17,6 @@ class Contact extends Validate
 
 	 protected $message = [
 	'Name.require' => '姓名必填',
-	
 	'Tel.require' => '电话必填',
 	'Tel.mobile' => '亲，您的电话格式有误',
 	'Job.require' =>'填上你的工作吧，亲',

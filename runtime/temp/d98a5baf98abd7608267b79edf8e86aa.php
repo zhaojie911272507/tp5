@@ -1,4 +1,4 @@
-<?php /*a:3:{s:69:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\blog\blog.html";i:1534144595;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534038598;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
+<?php /*a:3:{s:69:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\blog\blog.html";i:1534144595;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534228713;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>

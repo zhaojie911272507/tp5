@@ -1,26 +1,22 @@
-<?php /*a:3:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\contact\contact.html";i:1534227659;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534038598;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
+<?php /*a:3:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\contact\contact.html";i:1534233125;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534228713;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<title>Contacts</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
-		<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
-		<script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>
-		<script src="http://127.0.0.1/tp5/public/static/admin/style/js/pintuer.js"></script>
 		<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/bootstrap/css/bootstrap.min.css">
 		<link rel="icon" href="http://127.0.0.1/tp5/public/static/index/images/favicon.ico">
 		<link rel="shortcut icon" href="http://127.0.0.1/tp5/public/static/index/images/favicon.ico">
 		<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/css/form.css">
 		<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/css/style.css">
-		<!-- <script src="http://127.0.0.1/tp5/public/static/index/style/js/jquery.js"></script>
+		<script src="http://127.0.0.1/tp5/public/static/index/style/js/jquery.js"></script>
 		<script src="http://127.0.0.1/tp5/public/static/index/style/js/jquery-migrate-1.1.1.js"></script>
 		<script src="http://127.0.0.1/tp5/public/static/index/style/js/jquery.equalheights.js"></script>
 		<script src="http://127.0.0.1/tp5/public/static/index/style/js/jquery.ui.totop.js"></script>
 		<script src="http://127.0.0.1/tp5/public/static/index/style/js/jquery.easing.1.3.js"></script>
 		<script src="http://127.0.0.1/tp5/public/static/index/style/js/touchTouch.jquery.js"></script>
-		<script>
- -->
+		<script> 
+ 
 		$(document).ready(function(){
 			$().UItoTop({ easingType: 'easeOutQuart' });
 		})
@@ -96,7 +92,6 @@
 						<dl>
 							<dt>公司名： <br>
 								<?php echo htmlentities($webinfo['Title']); ?><br>
-								
 							</dt>
 							<dd><span>免费热线:</span><?php echo htmlentities($webinfo['PhoneNum']); ?></dd>
 							<dd><span>电话:</span><?php echo htmlentities($webinfo['PhoneNum']); ?></dd>
@@ -106,7 +101,6 @@
 						</dl>
 					</address>
 					<!-- <p> </p>
-
 					-->
 				</div>
 				</div>
@@ -120,10 +114,10 @@
 							<input type="text" id="name" name="name" placeholder="姓名：" data-validate="required:输入用户名" class="required" />
 						</label>
 						<label for="email">
-							<input  type="text" id="email" name="email" placeholder="邮箱：" class="required" />
+							<input  type="text" id="email" name="email" placeholder="邮箱："  class="required"/>
 						</label>
 						<label for="phone">
-							<input type="text" id="tel" name="tel" placeholder="电话：" class="required"/>
+							<input type="text" id="tel" name="tel" placeholder="手机：" class="required"/>
 						</label>
 						<label class="message">
 							<textarea id="content" name="content" placeholder="留言信息...." class="required"></textarea>
@@ -131,8 +125,9 @@
 						<div>
 							<div class="clear"></div>
 							<div class="btns">
-							<a href="#" data-type="reset" class="btn">取消</a>
-							<a type="submit" href="javascript:document.getElementById('form').submit();" class="btn">留言<a>
+							<button type="reset" id="res" class="btn" >取消</button>
+							<button type="submit" id="send" class="btn" >留言</button>
+							
 						</div>
 						</div>
 					</form>
@@ -156,19 +151,32 @@
         </div>
       </div>
     </footer>
-		<script>
-		// $(document).ready(function(){
-		// 	$(".bt-menu-trigger").toggle(
-		// 		function(){
-		// 			$('.bt-menu').addClass('bt-menu-open');
-		// 		},
-		// 		function(){
-		// 			$('.bt-menu').removeClass('bt-menu-open');
-		// 		}
-		// 	);
+	<script>
+    $(document).ready(function(){
+      $(".bt-menu-trigger").toggle(
+        function(){
+          $('.bt-menu').addClass('bt-menu-open');
+        },
+        function(){
+          $('.bt-menu').removeClass('bt-menu-open');
+        }
+      );
+      $('.responsive').on('click', '.close', function(){
+        $('.close').remove();
+        bgColor = $('.active .card-front').css('background-color');
+        $('.responsive').removeClass(effect);
+        $('.all-content').hide();
+        $('.content li').removeClass('active').show().css({ 
+          'border-bottom':'1px solid #2c2c2c',
+          'border-left':'1px solid #2c2c2c' 
+        });
+        $('.card-front, .card-back').show();
+        $('.content').css('background-color',bgColor);
+      });
+    });
 
-		// });
-		        $("form :input.required").each(function(){
+$(function(){
+        $("form :input.required").each(function(){
             var $required = $("<strong class='high'> *</strong>"); //创建元素
             $(this).parent().append($required); //然后将它追加到文档中
         });
@@ -179,7 +187,7 @@
              //验证用户名
              if( $(this).is('#name') ){
                     if( this.value=="" || this.value.length < 2 ){
-                        var errorMsg = '请输入至少3位的用户名.';
+                        var errorMsg = '请输入至少2位的用户名.';
                         $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
                     }else{
                         var okMsg = '输入正确.';
@@ -196,6 +204,26 @@
                       $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
                 }
              }
+             //电话验证
+             if( $(this).is('#tel') ){
+                if( this.value=="" || ( this.value!="" && !/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/ .test(this.value) ) ){
+                      var errorMsg = '请输入正确电话号码.';
+                      $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                }else{
+                      var okMsg = '输入正确.';
+                      $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                }
+             }
+             //验证内容
+             if( $(this).is('#content') ){
+                    if( this.value=="" ){
+                        var errorMsg = '请输入留言内容.';
+                        $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                    }else{
+                        var okMsg = '输入正确.';
+                        $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                    }
+             }
         }).keyup(function(){
            $(this).triggerHandler("blur");
         }).focus(function(){
@@ -210,7 +238,7 @@
                 if(numError){
                     return false;
                 } 
-                alert("注册成功,密码已发到你的邮箱,请查收.");
+                alert("感谢您的留言！");
          });
  
         //重置
@@ -218,6 +246,8 @@
                 $(".formtips").remove(); 
          });
 })
-		</script>
+
+  
+    </script>
 	</body>
 </html>

@@ -1,14 +1,12 @@
 <?php
 
 namespace app\admin\controller;
-use think\Controller;
+use app\admin\controller\Base;
 use think\Db;
 use app\admin\model\Links as LinksModel;
 use app\admin\validate\Links as Validateuser;
-class Links extends Controller
+class Links extends Base
 { 
-    
-   
 	public function listlinks()
     {
     
@@ -65,7 +63,7 @@ class Links extends Controller
 		$id=input('id');//返回的结果为获取的id
 			if(db('links')->delete(input('id')))////这里的$id是删除数据的数量,即此处删除了一条记录
 			{
-				$this->success('删除链接成功','listlinks');
+				return redirect('listlinks');
 			}
 			else
 			{

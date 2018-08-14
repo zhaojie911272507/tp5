@@ -1,4 +1,4 @@
-<?php /*a:3:{s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\index\index.html";i:1533783896;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\top.html";i:1533473153;s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\left.html";i:1533735504;}*/ ?>
+<?php /*a:3:{s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\index\index.html";i:1534078499;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\top.html";i:1533473153;s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\left.html";i:1533735504;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title>我的主页</title>  
+    <title>我的主页</title>
+    <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/bootstrap/css/bootstrap.min.css">   
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
     <script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>   

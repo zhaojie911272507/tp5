@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title></title>  
+    <title></title> 
+    <link rel="stylesheet" href="__PUBLIC__/static/index/style/bootstrap/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/pintuer.css">
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
     <script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
@@ -18,7 +19,8 @@
   <table class="table table-hover text-center">
     <tr>
       <th width="10%">项目名称</th>
-      <th width="10%">项目详细信息</th>
+      <th width="10%">项目概括</th>
+      <th width="10%">相关文件</th>
       <th>开始时间</th>
       <th>预计完成时间</th>
       <th>项目负责人</th>
@@ -28,6 +30,7 @@
     <tr>
       <td width="5%">{$vo.ProjectName}</td>
       <td>{$vo.ProjectInfo}</td>
+       <th width="10%"><a href="__PUBLIC__/static/uploads/{$vo.File}" style="color:#2673b4;text-decoration:underline;" download="__PUBLIC__/static/uploads/{$vo.File}">项目相关文件</a></th>
       <td>{$vo.StartTime}</td>
       <td>{$vo.TerminalTime}</td>
       <td>{$vo.Leader}</td>

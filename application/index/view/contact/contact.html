@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Contacts</title>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/pintuer.css">
+		<link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
+		<script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
+		<script src="__PUBLIC__/static/admin/style/js/pintuer.js"></script>
+		<link rel="stylesheet" href="__PUBLIC__/static/index/style/bootstrap/css/bootstrap.min.css">
+		<link rel="icon" href="__PUBLIC__/static/index/images/favicon.ico">
+		<link rel="shortcut icon" href="__PUBLIC__/static/index/images/favicon.ico">
+		<link rel="stylesheet" href="__PUBLIC__/static/index/style/css/form.css">
+		<link rel="stylesheet" href="__PUBLIC__/static/index/style/css/style.css">
+		<!-- <script src="__PUBLIC__/static/index/style/js/jquery.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery-migrate-1.1.1.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery.equalheights.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery.ui.totop.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery.easing.1.3.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/touchTouch.jquery.js"></script>
+		<script>
+ -->
+		$(document).ready(function(){
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		})
+		</script>
+		<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/__PUBLIC__/static/index/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="__PUBLIC__/static/index/style/js/html5shiv.js"></script>
+		<link rel="stylesheet" media="screen" href="__PUBLIC__/static/index/style/css/ie.css">
+		<![endif]-->
+		<!--[if lt IE 10]>
+		<link rel="stylesheet" media="screen" href="__PUBLIC__/static/index/style/css/ie1.css">
+		<![endif]-->
+	</head>
+	<body class="">
+<!--==============================header=================================-->
+	{include file="common/header" /}
+<!--==============================Content=================================-->
+		<div class="content cont2"><div class="ic"><a href="#" ></a> </div>
+			<div class="container_12">
+				<div class="grid_12">
+					<h2 class="mb0">公司地址</h2>
+				</div>
+			</div>
+		</div>
+		<div class="gray_block gb1">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="map">
+						<figure class="">
+							<iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+						</figure>
+					</div>
+				</div>
+				<div class="grid_4">
+					<h2 class="head1">地址</h2>
+					<div class="map">
+					<address>
+						<dl>
+							<dt>公司名： <br>
+								{$webinfo.Title}<br>
+								
+							</dt>
+							<dd><span>免费热线:</span>{$webinfo.PhoneNum}</dd>
+							<dd><span>电话:</span>{$webinfo.PhoneNum}</dd>
+							<dd><span>传真:</span>{$webinfo.Fax}</dd>
+							<dd><span>E-mail:</span> <a href="mailto:{$webinfo.Email}" style="color:#2673b4; text-decoration:underline;">{$webinfo.Email}</a></dd>
+							<dd><span>Skype:</span> <a href="#" class="col3">@skypename</a></dd>
+						</dl>
+					</address>
+					<!-- <p> </p>
+
+					-->
+				</div>
+				</div>
+				<div class="grid_8">
+					<h2 class="head1">留言</h2>
+					<form id="form" method="post" action="{:url('contact/addbook')}">
+						<div class="success_wrapper">
+							<div class="success-message">感谢您的留言！</div>
+						</div>
+						<label for="name">
+							<input type="text" id="name" name="name" placeholder="姓名：" data-validate="required:输入用户名" class="required" />
+						</label>
+						<label for="email">
+							<input  type="text" id="email" name="email" placeholder="邮箱：" class="required" />
+						</label>
+						<label for="phone">
+							<input type="text" id="tel" name="tel" placeholder="电话：" class="required"/>
+						</label>
+						<label class="message">
+							<textarea id="content" name="content" placeholder="留言信息...." class="required"></textarea>
+						</label>
+						<div>
+							<div class="clear"></div>
+							<div class="btns">
+							<a href="#" data-type="reset" class="btn">取消</a>
+							<a type="submit" href="javascript:document.getElementById('form').submit();" class="btn">留言<a>
+						</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+		{include file="common/footer" /}
+		<script>
+		// $(document).ready(function(){
+		// 	$(".bt-menu-trigger").toggle(
+		// 		function(){
+		// 			$('.bt-menu').addClass('bt-menu-open');
+		// 		},
+		// 		function(){
+		// 			$('.bt-menu').removeClass('bt-menu-open');
+		// 		}
+		// 	);
+
+		// });
+		       $("form :input.required").each(function(){
+            var $required = $("<strong class='high'> *</strong>"); //创建元素
+            $(this).parent().append($required); //然后将它追加到文档中
+        });
+         //文本框失去焦点后
+        $('form :input').blur(function(){
+             var $parent = $(this).parent();
+             $parent.find(".formtips").remove();
+             //验证用户名
+             if( $(this).is('#name') ){
+                    if( this.value=="" || this.value.length < 2 ){
+                        var errorMsg = '请输入至少3位的用户名.';
+                        $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                    }else{
+                        var okMsg = '输入正确.';
+                        $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                    }
+             }
+             //验证邮件
+             if( $(this).is('#email') ){
+                if( this.value=="" || ( this.value!="" && !/.+@.+\.[a-zA-Z]{2,4}$/.test(this.value) ) ){
+                      var errorMsg = '请输入正确的E-Mail地址.';
+                      $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
+                }else{
+                      var okMsg = '输入正确.';
+                      $parent.append('<span class="formtips onSuccess">'+okMsg+'</span>');
+                }
+             }
+        }).keyup(function(){
+           $(this).triggerHandler("blur");
+        }).focus(function(){
+             $(this).triggerHandler("blur");
+        });//end blur
+ 
+        
+        //提交，最终验证。
+         $('#send').click(function(){
+                $("form :input.required").trigger('blur');
+                var numError = $('form .onError').length;
+                if(numError){
+                    return false;
+                } 
+                alert("注册成功,密码已发到你的邮箱,请查收.");
+         });
+ 
+        //重置
+         $('#res').click(function(){
+                $(".formtips").remove(); 
+         });
+})
+		</script>
+	</body>
+</html>

@@ -1,16 +1,19 @@
 <?php
 
 namespace app\admin\controller;
+use think\Db;
 use think\Controller;
 class Base extends Controller
 { 
     public function initialize()
     {    
+      $list = Db::name('admin')->where('Id','=',session('uid'),'UserName','=',session('username'))->find();
 
-      if(!session('username'))
+      if($list=='NULL' || $list==NULL || !session('username'))
         {
-         $this->error('请先登录系统','Login/index');
+        $this->error('不是管理员，请离开','admin/Login/index');
         }
     }
+
 }
  

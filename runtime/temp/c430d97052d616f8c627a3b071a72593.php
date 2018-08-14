@@ -1,4 +1,4 @@
-<?php /*a:1:{s:76:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\listproject.html";i:1533993567;}*/ ?>
+<?php /*a:1:{s:76:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\listproject.html";i:1534156345;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -28,28 +28,29 @@
     </div>
   <table class="table table-hover text-center">
     <tr>
-      <td>ID</td>
+      <th width="10%">ID</th>
       <th width="10%">项目名称</th>
-      <th width="10%">项目详细信息</th>
-      <th>开始时间</th>
-      <th>预计完成时间</th>
-      <th>项目负责人</th>
-      <th>负责人联系方式</th>
-      <th width="20%">操作</th>
+      <th width="15%">项目概括</th>
+      <th width="10%">相关文件</th>
+      <th width="10%">开始时间</th>
+      <th width="10%">预计完成时间</th>
+      <th width="10%">项目负责人</th>
+      <!-- <th>负责人联系方式</th> -->
+      <th width="25%">操作</th>
     </tr>
    <?php if(is_array($project) || $project instanceof \think\Collection || $project instanceof \think\Paginator): $i = 0; $__LIST__ = $project;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
-      <td width="10%"><input id="check" type="checkbox" name="id[]" value="<?php echo htmlentities($vo['Id']); ?>" />
-            <?php echo htmlentities($vo['Id']); ?></td>
+      <td width="10%"><input id="check" type="checkbox" name="id[]" value="<?php echo htmlentities($vo['Id']); ?>"> <?php echo htmlentities($vo['Id']); ?></td>
       <td width="5%"><?php echo htmlentities($vo['ProjectName']); ?></td>
-      <td><?php echo htmlentities($vo['ProjectInfo']); ?></td>
+      <td width="10%"><?php echo htmlentities($vo['ProjectInfo']); ?></td>
+       <th width="10%"><a href="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($vo['File']); ?>" style="color:#2673b4;text-decoration:underline;" download="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($vo['File']); ?>">项目相关文件</a></th>
       <td><?php echo htmlentities($vo['StartTime']); ?></td>
       <td><?php echo htmlentities($vo['TerminalTime']); ?></td>
       <td><?php echo htmlentities($vo['Leader']); ?></td>
-      <td><?php echo htmlentities($vo['LeaderContect']); ?></td>
-      <td width="20%">
+      <!-- <td></td> -->
+      <td width="25%">
       <div class="button-group">
-      <a type="button" class="button border-main" href="<?php echo url('proj/update',array('id'=>$vo['Id'])); ?>"><span class="icon-edit"></span>修改</a>
+     <a type="button" class="button border-main" href="<?php echo url('proj/update',array('id'=>$vo['Id'])); ?>"><span class="icon-edit"></span>修改</a>
        <a class="button border-red"  onclick="return del()" href="<?php echo url('proj/del',array('id'=>$vo['Id'])); ?>"><span class="icon-trash-o"></span>删除</a>
      
       </div>

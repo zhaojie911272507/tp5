@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Contacts</title>
+		<meta charset="utf-8">
+		<link rel="icon" href="__PUBLIC__/static/index/images/favicon.ico">
+		<link rel="shortcut icon" href="__PUBLIC__/static/index/images/favicon.ico">
+		<link rel="stylesheet" href="__PUBLIC__/static/index/style/css/form.css">
+		<link rel="stylesheet" href="__PUBLIC__/static/index/style/css/style.css">
+		<script src="__PUBLIC__/static/index/style/js/jquery.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery-migrate-1.1.1.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery.equalheights.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery.ui.totop.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/jquery.easing.1.3.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/touchTouch.jquery.js"></script>
+		<script src="__PUBLIC__/static/index/style/js/TMForm.js"></script>
+		<script>
+		$(document).ready(function(){
+			$().UItoTop({ easingType: 'easeOutQuart' });
+		})
+		</script>
+		<!--[if lt IE 8]>
+		<div style=' clear: both; text-align:center; position: relative;'>
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+				<img src="http://storage.ie6countdown.com/assets/100/__PUBLIC__/static/index/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+			</a>
+		</div>
+		<![endif]-->
+		<!--[if lt IE 9]>
+		<script src="__PUBLIC__/static/index/style/js/html5shiv.js"></script>
+		<link rel="stylesheet" media="screen" href="__PUBLIC__/static/index/style/css/ie.css">
+		<![endif]-->
+		<!--[if lt IE 10]>
+		<link rel="stylesheet" media="screen" href="__PUBLIC__/static/index/style/css/ie1.css">
+		<![endif]-->
+	</head>
+	<body class="">
+<!--==============================header=================================-->
+	{include file="common/header" /}
+<!--==============================Content=================================-->
+		<div class="content cont2"><div class="ic"><a href="#" ></a> </div>
+			<div class="container_12">
+				<div class="grid_12">
+					<h2 class="mb0">公司地址</h2>
+				</div>
+			</div>
+		</div>
+		<div class="gray_block gb1">
+			<div class="container_12">
+				<div class="grid_12">
+					<div class="map">
+						<figure class="">
+							<iframe src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Brooklyn,+New+York,+NY,+United+States&amp;aq=0&amp;sll=37.0625,-95.677068&amp;sspn=61.282355,146.513672&amp;ie=UTF8&amp;hq=&amp;hnear=Brooklyn,+Kings,+New+York&amp;ll=40.649974,-73.950005&amp;spn=0.01628,0.025663&amp;z=14&amp;iwloc=A&amp;output=embed"></iframe>
+						</figure>
+					</div>
+				</div>
+				<div class="grid_4">
+					<h2 class="head1">地址</h2>
+					<div class="map">
+					<address>
+						<dl>
+							<dt>公司名： <br>
+								{$webinfo.Title}<br>
+								Glasgow, D04 89GR.
+							</dt>
+							<dd><span>免费热线:</span>{$webinfo.PhoneNum}</dd>
+							<dd><span>电话:</span>{$webinfo.PhoneNum}</dd>
+							<dd><span>传真:</span>{$webinfo.Fax}</dd>
+							<dd><span>E-mail:</span> <a href="mailto:{$webinfo.Email}" style="color:#2673b4; text-decoration:underline;">{$webinfo.Email}</a></dd>
+							<dd><span>Skype:</span> <a href="#" class="col3">@skypename</a></dd>
+						</dl>
+					</address>
+					<p>24/7 support is available for allpremium products from TemplateMonster. Free stuff goes without it.</p>
+
+					Have any questions about customization of a free template? Address to <span class="col3">TemplateTuning</span>.
+				</div>
+				</div>
+				<div class="grid_8">
+					<h2 class="head1">留言</h2>
+					<form id="form" method="post" action="mailto:{$webinfo.Email}">
+						<div class="success_wrapper">
+							<div class="success-message">感谢您的留言！</div>
+						</div>
+						<label class="name">
+							<input type="text" placeholder="Name:" data-constraints="@Required" />
+							<span class="empty-message">*姓名必填.</span>
+							<span class="error-message">*这不是一个有效的名字.</span>
+						</label>
+						<label class="email">
+							<input  type="text"  placeholder="E-mail:" data-constraints="@Required @Email" />
+							<span class="empty-message">*邮箱不能为空哦.</span>
+							<span class="error-message">*邮箱格式有误.</span>
+						</label>
+						<label class="phone">
+							<input type="text" placeholder="Phone:" data-constraints="@Required @JustNumbers"/>
+							<span class="empty-message">*留个电话吧.</span>
+							<span class="error-message">*这不是一个有效的电话号码.</span>
+						</label>
+						<label class="message">
+							<textarea placeholder="Message:" data-constraints='@Required @Length(min=1,max=999999)'></textarea>
+							<span class="empty-message">*内容不能为空哦</span>
+							<span class="error-message">*内容有点少哦，多写点吧，亲.</span>
+						</label>
+						<div>
+							<div class="clear"></div>
+							<div class="btns">
+							<a href="#" data-type="reset" class="btn">取消</a>
+							<a href="mailto:{$webinfo.Email}" data-type="submit" class="btn">发送</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+<!--==============================footer=================================-->
+		{include file="common/footer" /}
+		<script>
+		$(document).ready(function(){
+			$(".bt-menu-trigger").toggle(
+				function(){
+					$('.bt-menu').addClass('bt-menu-open');
+				},
+				function(){
+					$('.bt-menu').removeClass('bt-menu-open');
+				}
+			);
+
+		});
+		</script>
+	</body>
+</html>

@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title></title>  
+    <title></title>
+    <link rel="stylesheet" href="__PUBLIC__/static/index/style/bootstrap/css/bootstrap.min.css">  
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/pintuer.css">
     <link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
     <script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
@@ -25,12 +26,10 @@
         <th>邮箱</th>
         <th width="25%">留言内容</th>
          <th width="120">留言时间</th>
-        <th>操作</th> 
       </tr>
          {volist name='book' id='vo'}
         <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            {$vo.Id}</td>
+          <td><input type="checkbox" name="id[]" value="1" />{$vo.Id}</td>
           <td>{$vo.Name}</td>
           <td>{$vo.Job}</td>
           <td>{$vo.Tel}</td> 

@@ -8,7 +8,7 @@ class Proj extends Validate
 { 
    	protected $rule=[
    		'ProjectName' =>'require',
-   		'ProjectInfo' => 'require|min:20',//键为要验证的名字，值为验证规则。require为必填
+   		'ProjectInfo' => 'require|min:6',//键为要验证的名字，值为验证规则。require为必填
    		'StartTime' => 'require',
    		'TerminalTime'	=> 'require',
    		'Leader'	=> 'require',
@@ -16,13 +16,13 @@ class Proj extends Validate
    ];
    //可以根据需要自己写错误提示
 	 protected $message = [
-	'ProjectName.require'=>'项目总得有个名称吧',
-	'ProjectInfo.require' => '项目详细信息可不能为空',
-	'ProjectInfo.min' => '项目详细信息也太少了吧',
-	'StartTime.require'=>'开始时间怎么能为空',
-	'TerminalTime.require'=>'限定个结束时间吧',
-	'Leader.require'=>'负责人总的有个人吧',
-	'LeaderContect.require'=>'留下负责人的联系方式，行吗',
+	'ProjectName.require'=>'项目名称不能为空',
+	'ProjectInfo.require' => '项目详细信息不能为空',
+	'ProjectInfo.min' => '项目详细信息太少',
+	'StartTime.require'=>'开始时间不能为空',
+	'TerminalTime.require'=>'截止日期必填',
+	'Leader.require'=>'填写项目负责人',
+	'LeaderContect.require'=>'负责人联系方式不能为空',
 	];
 
 		

@@ -1,4 +1,4 @@
-<?php /*a:1:{s:67:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\pic\pic.html";i:1533993556;}*/ ?>
+<?php /*a:1:{s:67:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\pic\pic.html";i:1534151123;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -12,6 +12,11 @@
 <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
 <script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>
 <script src="http://127.0.0.1/tp5/public/static/admin/style/js/pintuer.js"></script>
+<style type="text/css">
+.label{
+  font-size:15px;
+}
+</style>
 </head>
 <body>
 <div class="panel admin-panel">

@@ -7,8 +7,6 @@ use app\admin\validate\Admin as Validateuser;
 use app\admin\controller\Base;//因为公用的控制器，已经继承了controller
 class Addadmin extends Base
 { 
-	
-
      public function index()
      {
     	$list = Db::name('admin')->order('Id','desc')->paginate(4); // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
@@ -16,27 +14,21 @@ class Addadmin extends Base
 	    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
 
       	return $this->fetch('listadmin');
-	
       }
-   
-	public function listadmin()
-    {
-	    $list = Db::name('admin')->order('Id','desc')->paginate(4);
-	    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
-	    $count=$list->total();//获取总记录数
-	    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
-
-	     return $this->fetch();//渲染模板输出
-		
-     }
+		public function listadmin()
+	    {
+		    $list = Db::name('admin')->order('Id','desc')->paginate(4);
+		    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
+		    $count=$list->total();//获取总记录数
+		    $this->assign('guanliyuan',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
+		     return $this->fetch();//渲染模板输出
+	     }
 
 
 	public function add()//添加
 	{
 		if(request()->isPost())
 		{
-			// var_dump(input('post.'));
-			// return;
 			$validate = new Validateuser;
 			//$validate = new \think\Validate([//独立验证，在任何时候都可以使用Validate进行验证，注意实例化是要用完全限定名称，此时引用命名空间不合适，因为已经继承了一个类了
 			// 'UserName' => 'require|min:5',//用户名最小长度为5
@@ -116,6 +108,7 @@ class Addadmin extends Base
 	 	
 	 	$admins=db('admin')->find($id);//获取一条数据	
 	 	$this->assign('admins',$admins);
+	 	$validate = new Validateuser;
 		if(request()->isPost())//request判断是否表单已经提交过来，如果是POST表单提交过来的，就要处理数据，记得要加return
 		{
 			if(input('password'))
@@ -124,7 +117,7 @@ class Addadmin extends Base
 				'Id'=>input('id'),
 				'UserName'=>input('username'),	
 				'PassWord'=>md5(input('password')),
-			];
+				];
 			}
 			else
 			{
@@ -144,7 +137,7 @@ class Addadmin extends Base
 			// 	$data['PassWord']=$admins['PassWord'];
 			// }
 			//验证场景
-			$validate = new Validateuser;
+			
 			if(!$validate->scene('update')->check($data))
 			{
 				$this->error($validate->getError());die;
@@ -176,7 +169,7 @@ class Addadmin extends Base
 					}
 					else
 					{
-						if(db('admin')->delete(input('id/a')))//这里的$id是删除数据的数量,即此处删除了一条记录
+						if(db('admin')->delete($id))//这里的$id是删除数据的数量,即此处删除了一条记录
 						{
 							return redirect('listadmin');
 						}

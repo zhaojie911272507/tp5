@@ -41,7 +41,7 @@
           <td>{$vo.Name}</td>
           <td>{$vo.Job}</td>
           <td>{$vo.Tel}</td> 
-          <td>{$vo.Email}</td>   
+          <td><a href="mailto:{$vo.Email}" style="color:#2673b4; text-decoration:underline;">{$vo.Email}</a></td>   
           <td>{$vo.Content}</td>
           <td>{$vo.Timestamp}</td>
           <td><div class="button-group"> <a class="button border-red" href="{:url('book/delbook',array('id'=>$vo['Id']))}" onclick="return del()"><span class="icon-trash-o"></span> 删除</a></div></td>

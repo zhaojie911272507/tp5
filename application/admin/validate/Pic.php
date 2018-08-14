@@ -7,7 +7,7 @@ use think\Validate;
 class Pic extends Validate
 { 
    	protected $rule=[
-   		'Sort' =>'require|unique:lunbotu',
+   		'Sort' =>'require|unique:lunbotu|number',
    		'Pic' => 'require',//键为要验证的名字，值为验证规则。require为必填
    		'Alt'=> 'require',
    ];
@@ -15,6 +15,7 @@ class Pic extends Validate
 	 protected $message = [
 	'Sort.require'=>'排序不能为空',
 	'Sort.unique'=>'排序不能重复',
+	'Sort.number'=>'排序只能为整数',
 	'Pic.require' => '选择一个图片上传',
 	'Alt.require'=>'描述一下吧',
 	];

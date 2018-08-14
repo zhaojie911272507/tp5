@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 use think\Db;
 use app\admin\model\Stdinfo;
+use app\admin\validate\Addstdv as Validateuser;
 use app\admin\controller\Base;//因为公用的控制器，已经继承了controller
 class Addstd extends Base
 { 
@@ -30,12 +31,12 @@ class Addstd extends Base
 		
 		if(request()->isPost())
 		{
-			$validate = new \think\Validate([//独立验证，在任何时候都可以使用Validate进行验证，注意实例化是要用完全限定名称，此时引用命名空间不合适，因为已经继承了一个类了
-			'StdId'=>'require|number',
-			'UserName' => 'require|min:5',//用户名最小长度为5
-			'PassWord' => 'require|max:32',//密码最大长度为25
-			'Grade'=>'require',
-			]);
+			// $validate = new \think\Validate([//独立验证，在任何时候都可以使用Validate进行验证，注意实例化是要用完全限定名称，此时引用命名空间不合适，因为已经继承了一个类了
+			// 'StdId'=>'require|number',
+			// 'UserName' => 'require|min:5',//用户名最小长度为5
+			// 'PassWord' => 'require|max:32',//密码最大长度为25
+			// 'Grade'=>'require',
+			// ]);
 
 			$data=[
 			'StdId'=>input('stdid'),
@@ -44,13 +45,11 @@ class Addstd extends Base
 			'Name'=> input('name'),
 			'Grade'=> input('grade'),
 			'Sex'=> input('sex'),
-			'Class'=> input('class')
+			'Class'=> input('class'),
+			'Rgtime'=>time()
 			];
-			// var_dump($data); 
-			// die;
-		
-			
-			if (!$validate->check($data)) {
+			$validate = new Validateuser;
+			if (!$validate->scene('add')->check($data)) {
 			$this->error($validate->getError());//此处也可以用dump($validate->getError())，用$this->error();打印出来的效果会好一些
 			die;  
 			}

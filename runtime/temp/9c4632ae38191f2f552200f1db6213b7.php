@@ -1,4 +1,4 @@
-<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\index.html";i:1534040216;s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1533207076;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1533729532;}*/ ?>
+<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\index.html";i:1534040216;s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1533207076;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1534215624;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -25,7 +25,8 @@
     <li><a href="<?php echo url('info/update'); ?>" target="right"><span class="icon-caret-right"></span>网站设置</a></li>
     <li><a href="<?php echo url('pass/pass'); ?>" target="right"><span class="icon-caret-right"></span>修改密码</a></li>
     <li><a href="<?php echo url('proj/listproject'); ?>" target="right"><span class="icon-caret-right"></span>项目管理</a></li>  
-    <li><a href="<?php echo url('pic/pic'); ?>" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>   
+    <li><a href="<?php echo url('pic/pic'); ?>" target="right"><span class="icon-caret-right"></span>首页轮播</a></li>  
+     <li><a href="<?php echo url('services/services'); ?>" target="right"><span class="icon-caret-right"></span>前台服务</a></li>  
     <li><a href="<?php echo url('book/listbook'); ?>" target="right"><span class="icon-caret-right"></span>留言管理</a></li>     
     <li><a href="<?php echo url('column/listcolumn'); ?>" target="right"><span class="icon-caret-right"></span>栏目管理</a></li>
   </ul>

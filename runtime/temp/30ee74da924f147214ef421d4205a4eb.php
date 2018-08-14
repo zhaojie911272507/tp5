@@ -1,3 +1,4 @@
+<?php /*a:1:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\addadmin\update.html";i:1534082142;}*/ ?>
 
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -7,17 +8,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <meta name="renderer" content="webkit">
 <title></title>
-<link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/pintuer.css">
-<link rel="stylesheet" href="__PUBLIC__/static/admin/style/css/admin.css">
-<script src="__PUBLIC__/static/admin/style/js/jquery.js"></script>
-<script src="__PUBLIC__/static/admin/style/js/pintuer.js"></script>
+<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
+<link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
+<script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>
+<script src="http://127.0.0.1/tp5/public/static/admin/style/js/pintuer.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
   <div class="panel-head"><strong><span class="icon-key"></span> 修改管理员信息</strong></div>
   <div class="body-content">
 
-    <input type="hidden" value="{$admins.Id}" name="id">
+    <input type="hidden" value="<?php echo htmlentities($admins['Id']); ?>" name="id">
 
     <form method="post" class="form-x" action="">
       <div class="form-group">
@@ -25,7 +26,7 @@
           <label for="sitename">用户名：</label>
         </div>
         <div class="field">
-          <input type="text" class="input w50" id="username" name="username" readonly="readonly" size="50" value="{$admins.UserName}" placeholder="修改当前用户名" data-validate="required:输入用户名" />       
+          <input type="text" class="input w50" id="username" name="username" readonly="readonly" size="50" value="<?php echo htmlentities($admins['UserName']); ?>" placeholder="修改当前用户名" data-validate="required:输入用户名" />       
         </div>
       </div>  
       <div class="form-group">
@@ -33,7 +34,7 @@
           <label for="sitename">密码：</label>
         </div>
         <div class="field">
-          <input type="password" class="input w50" id="password" name="password" maxlength="16" size="50" placeholder="不填默认为不修改密码" data-validate="不填默认不修改密码" />         
+          <input type="password" class="input w50" id="password" min="5" name="password" maxlength="16" size="50" placeholder="不填默认为不修改密码" data-validate="不填默认不修改密码" />         
         </div>
       </div>
       <div class="form-group">

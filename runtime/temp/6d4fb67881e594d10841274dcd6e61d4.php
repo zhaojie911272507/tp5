@@ -1,4 +1,4 @@
-<?php /*a:1:{s:79:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\member\listproject.html";i:1533735445;}*/ ?>
+<?php /*a:1:{s:79:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\member\listproject.html";i:1534142086;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title></title>  
+    <title></title> 
+    <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/bootstrap/css/bootstrap.min.css"> 
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
     <script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>
@@ -19,7 +20,8 @@
   <table class="table table-hover text-center">
     <tr>
       <th width="10%">项目名称</th>
-      <th width="10%">项目详细信息</th>
+      <th width="10%">项目概括</th>
+      <th width="10%">相关文件</th>
       <th>开始时间</th>
       <th>预计完成时间</th>
       <th>项目负责人</th>
@@ -29,6 +31,7 @@
     <tr>
       <td width="5%"><?php echo htmlentities($vo['ProjectName']); ?></td>
       <td><?php echo htmlentities($vo['ProjectInfo']); ?></td>
+       <th width="10%"><a href="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($vo['File']); ?>" style="color:#2673b4;text-decoration:underline;" download="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($vo['File']); ?>">项目相关文件</a></th>
       <td><?php echo htmlentities($vo['StartTime']); ?></td>
       <td><?php echo htmlentities($vo['TerminalTime']); ?></td>
       <td><?php echo htmlentities($vo['Leader']); ?></td>

@@ -1,9 +1,13 @@
-<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\index\index.html";i:1533995233;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534038598;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
+<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\index\index.html";i:1534144586;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534038598;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <title>首页</title>
+    <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
+    <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
+    <script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>
+    <script src="http://127.0.0.1/tp5/public/static/admin/style/js/pintuer.js"></script>
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/bootstrap/css/bootstrap.min.css">
     <link rel="icon" href="http://127.0.0.1/tp5/public/static/index/images/favicon.ico">
     <link rel="shortcut icon" href="http://127.0.0.1/tp5/public/static/index/images/favicon.ico">
@@ -102,16 +106,16 @@
     </div>
     <div class="container_12">
       <section class="grid" id="grid">
-        <a href="#" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
+        <a href="<?php echo url('contact/contact'); ?>" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
           <figure>
             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,262 0,0 180,0 z"/></svg>
             <figcaption>
             <div class="title">业务咨询</div>
             </figcaption>
           </figure>
-          <span>more</span>
+         <span>more</span>
         </a>
-        <a href="#" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
+        <a href="<?php echo url('project/project'); ?>" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
           <figure>
             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,262 0,0 180,0 z"/></svg>
             <figcaption>
@@ -120,7 +124,7 @@
           </figure>
           <span>more</span>
         </a>
-        <a href="#" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
+        <a href="<?php echo url('services/services'); ?>" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
           <figure>
             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,262 0,0 180,0 z"/></svg>
             <figcaption>
@@ -129,11 +133,11 @@
           </figure>
           <span>more</span>
         </a>
-        <a href="#" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
+        <a href="<?php echo url('aboutus/aboutus'); ?>" data-path-hover="m 180,70.57627 -180,0 L 0,0 180,0 z">
           <figure>
             <svg viewBox="0 0 180 320" preserveAspectRatio="none"><path d="M 180,160 0,262 0,0 180,0 z"/></svg>
             <figcaption>
-            <div class="title">综合分析</div>
+            <div class="title">关于我们</div>
             </figcaption>
           </figure>
           <span>more</span>

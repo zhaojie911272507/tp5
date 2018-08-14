@@ -16,13 +16,22 @@
 <div class="panel admin-panel">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 项目信息</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="">
+     <form method="post" class="form-x" enctype="multipart/form-data" action="{:url('proj/add')}"> 
       <div class="form-group">
         <div class="label">
           <label>项目名称</label>
         </div>
         <div class="field">
           <input type="text" class="input" name="pname" value="" placeholder="请输入项目名称" data-validate="required:请输入项目名称" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>相关文件上传</label>
+        </div>
+        <div class="field">
+          <input type="file" class="input" name="file[]" value="" placeholder="上传相关文件" data-validate="required:上传相关文件" />
           <div class="tips"></div>
         </div>
       </div>
@@ -35,6 +44,7 @@
           <div class="tips"></div>
         </div>
       </div>
+
       <div class="form-group">
         <div class="label">
           <label>开始时间：</label>

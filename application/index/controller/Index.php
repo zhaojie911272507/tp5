@@ -5,7 +5,6 @@ namespace app\index\controller;
  use think\Db;
 class Index extends Controller
 { 
- 
     public function index()
     {
     	$nav=Db::name('column')->order('id asc')->select();

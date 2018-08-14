@@ -1,0 +1,88 @@
+<?php /*a:1:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\aboutus\aboutus.html";i:1534144602;}*/ ?>
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script>
+  <title>关于我们</title>
+</head>
+<body  bgcolor="#e4e4e4">
+
+  <table style="font-size: 11px; line-height: 14px; color: #666666; font-family: Helvetica, Arial, sans-serif;" border="0" cellspacing="0" cellpadding="0" width="100%" align="center" bgcolor="#e4e4e4">
+  <tr>
+  <td>
+  <table style="font-size: 11px; line-height: 14px; color: #666666;" border="0" cellspacing="0" cellpadding="0" width="800" align="center">
+  <tr>
+  <td style="line-height: 0; font-size: 0;" height="20">&nbsp;</td>
+  </tr>
+  <tr>
+  <td style="line-height: 0; font-size: 0;" height="13">&nbsp;</td>
+  </tr>
+  </table>
+  <table style="font-size: 13px; line-height: 18px; color: #666666; border-radius: 4px; border: #e1e1e1 1px solid;" border="0" cellspacing="0" cellpadding="0" width="648" align="center" bgcolor="#ffffff">
+  <tr>
+  <td>
+  <table style="font-size: 13px; line-height: 18px; color: #666666;" border="0" cellspacing="0" cellpadding="0" width="800" align="center">
+  <tr>
+  <td style="line-height: 0; font-size: 0;" colspan="3" height="45">&nbsp;</td>
+  </tr>
+  <tr>
+  <td width="40">&nbsp;</td>
+  <td><strong style="font-size:30px;line-height:20px;color:#000000;font-weight:bold">关于我们公司的声明</strong><br><br>
+  Author: <strong style="color: #010101;">zhaojie</strong><br>
+  Author URL: <a href="<?php echo url('index/index'); ?>" style="color:#2673b4; text-decoration:underline;">官方网站</a><br>
+  <a href="#" style="color:#2673b4; text-decoration:underline;">内容如下：</a><br><br><br>
+
+  <strong style="font-size:20px;line-height:20px;color:#000000;font-weight:bold">许可证</strong><br><br>
+  我们公司<strong style="color: #010101;">100% FREE!</strong><br>期待与您的合作！ :) <br><br><br>
+
+  <strong style="font-size:20px;line-height:20px;color:#000000;font-weight:bold">Installation & Editing</strong><br><br>
+
+  <strong style="color: #010101;">1.</strong> Bluehost. The special offer includes a hosting package at just $3.95/mo (reduced from $6.95/mo regular price), free domain name as well as $100 Google AdWords Credit. 
+   <br><br>
+
+  <strong style="color: #010101;">2.</strong> This template may be edited with any HTML editor. If you do not know where to get one, you may consider trying <i>NotePad++</i>. It can be downloaded at  and it's free. <br><br>
+
+  <strong style="color: #010101;">3.To put your own logo you should replace logo.png (it is located in <i>site>images>logo.png</i>) with your own .png file. 
+    <br><br>
+  Alternatively, we can help you customize the template by making minor changes to its layout, changing the color scheme or logo, adding content as per your requirements, etc. 
+  <br>
+  As with all our services, we will work on the design until you are completely satisfied. Email us to 
+  <br><br><br>
+
+
+  <strong style="font-size:20px;line-height:20px;color:#000000;font-weight:bold">本公司承诺</strong><br><br>
+  如果在项目交付后系统有什么流动或一些小bug需要修复，请及时与我们联系。我们团队将以最快的速度解决你的问题，已达到用户满意的效果。<br>关于您的问题，请使用以下电子邮件向我们的技术支持团队提交请求。我们将在未来24小时内以低廉的价格向您提供帮助 <a href="mailto:911272507@qq.com" style="color:#2673b4; text-decoration:underline;">911272507@qq.com</a><br><br>
+
+
+
+  </td>
+  <td width="40">&nbsp;</td>
+  </tr>
+  <tr>
+  <td style="line-height: 0; font-size: 0;" colspan="3" height="30">&nbsp;</td>
+  </tr>
+  <tr>
+  <td width="40">&nbsp;</td>
+  <td>最诚挚的问候，<br>
+  <strong style="font-size: 14px; color: #010101;">呵呵哒团队</strong></td>
+  <td width="40">&nbsp;</td>
+  </tr>
+  <tr>
+  <td style="line-height: 0; font-size: 0;" colspan="3" height="50">&nbsp;</td>
+  </tr>
+
+  </table>
+  </td>
+  </tr>
+  </table>
+  <table style="font-size: 13px; line-height: 18px; color: #666666;" border="0" cellspacing="0" cellpadding="0" width="800" align="center">
+  <tr>
+  <td style="line-height: 0; font-size: 0;" colspan="3" height="40">&nbsp;</td>
+  </tr>
+  </table>
+  </td>
+  </tr>
+  </table>
+</body>
+</html>

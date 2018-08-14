@@ -27,28 +27,29 @@
     </div>
   <table class="table table-hover text-center">
     <tr>
-      <td>ID</td>
+      <th width="10%">ID</th>
       <th width="10%">项目名称</th>
-      <th width="10%">项目详细信息</th>
-      <th>开始时间</th>
-      <th>预计完成时间</th>
-      <th>项目负责人</th>
-      <th>负责人联系方式</th>
-      <th width="20%">操作</th>
+      <th width="15%">项目概括</th>
+      <th width="10%">相关文件</th>
+      <th width="10%">开始时间</th>
+      <th width="10%">预计完成时间</th>
+      <th width="10%">项目负责人</th>
+      <!-- <th>负责人联系方式</th> -->
+      <th width="25%">操作</th>
     </tr>
    {volist name='project' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
-      <td width="10%"><input id="check" type="checkbox" name="id[]" value="{$vo.Id}" />
-            {$vo.Id}</td>
+      <td width="10%"><input id="check" type="checkbox" name="id[]" value="{$vo.Id}"> {$vo.Id}</td>
       <td width="5%">{$vo.ProjectName}</td>
-      <td>{$vo.ProjectInfo}</td>
+      <td width="10%">{$vo.ProjectInfo}</td>
+       <th width="10%"><a href="__PUBLIC__/static/uploads/{$vo.File}" style="color:#2673b4;text-decoration:underline;" download="__PUBLIC__/static/uploads/{$vo.File}">项目相关文件</a></th>
       <td>{$vo.StartTime}</td>
       <td>{$vo.TerminalTime}</td>
       <td>{$vo.Leader}</td>
-      <td>{$vo.LeaderContect}</td>
-      <td width="20%">
+      <!-- <td></td> -->
+      <td width="25%">
       <div class="button-group">
-      <a type="button" class="button border-main" href="{:url('proj/update',array('id'=>$vo['Id']))}"><span class="icon-edit"></span>修改</a>
+     <a type="button" class="button border-main" href="{:url('proj/update',array('id'=>$vo['Id']))}"><span class="icon-edit"></span>修改</a>
        <a class="button border-red"  onclick="return del()" href="{:url('proj/del',array('id'=>$vo['Id']))}"><span class="icon-trash-o"></span>删除</a>
      
       </div>

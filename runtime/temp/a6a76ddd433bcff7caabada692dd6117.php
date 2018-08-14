@@ -1,4 +1,4 @@
-<?php /*a:1:{s:74:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\book\listbook.html";i:1533544702;}*/ ?>
+<?php /*a:1:{s:74:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\book\listbook.html";i:1534141870;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="renderer" content="webkit">
-    <title></title>  
+    <title></title>
+    <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/index/style/bootstrap/css/bootstrap.min.css">  
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/pintuer.css">
     <link rel="stylesheet" href="http://127.0.0.1/tp5/public/static/admin/style/css/admin.css">
     <script src="http://127.0.0.1/tp5/public/static/admin/style/js/jquery.js"></script>
@@ -26,12 +27,10 @@
         <th>邮箱</th>
         <th width="25%">留言内容</th>
          <th width="120">留言时间</th>
-        <th>操作</th> 
       </tr>
          <?php if(is_array($book) || $book instanceof \think\Collection || $book instanceof \think\Paginator): $i = 0; $__LIST__ = $book;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
         <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
-            <?php echo htmlentities($vo['Id']); ?></td>
+          <td><input type="checkbox" name="id[]" value="1" /><?php echo htmlentities($vo['Id']); ?></td>
           <td><?php echo htmlentities($vo['Name']); ?></td>
           <td><?php echo htmlentities($vo['Job']); ?></td>
           <td><?php echo htmlentities($vo['Tel']); ?></td> 

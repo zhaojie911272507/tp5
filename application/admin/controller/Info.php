@@ -1,11 +1,11 @@
 <?php
 
 namespace app\admin\controller;
-use think\Controller;
+use app\admin\controller\Base;
 use think\Db;
 use app\admin\model\Info as Infom;
 use app\admin\validate\Info as Validateuser;
-class Info extends Controller
+class Info extends Base
 { 
  	public function index()
      {

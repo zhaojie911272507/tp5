@@ -54,26 +54,13 @@ class Column extends Base
 		{		
 			$id=input('id');
 		 	$column=db('column')->find($id);//获取一条数据	
-
 		 	$this->assign('column',$column);
-
-		 	$data=[
-				'Id'=>input('id'),
-				'Cname'=>input('cname'),	
-				];
-				dump($data);die;
 		 	if(request()->post())
 		 	{
 		 		$data=[
 				'Id'=>input('id'),
 				'Cname'=>input('cname'),	
 				];
-				dump($data);die;
-		 	}
-		 	else
-		 	{
-		 		$this->error('表单提交失败');
-		 	}
 			$validate = new Validateuser;
 			if(!$validate->scene('updatecol')->check($data))
 			{
@@ -81,14 +68,16 @@ class Column extends Base
 			}
 			if(db('column')->update($data))//此处把Id写到了data数组里，所以此处省略了where
 			{
-				return redirct('listcolumn');
+				return redirect('listcolumn');
+				#$this->success('修改栏目信息成功','listcolumn');
 			}
 			else
 			{
 				$this->error('修改栏目信息失败');
 			}
 			 return ;//加一个return将不再显示下面的语句
-			return $this->fetch('listcolumn');
+		 }
+			return $this->fetch('updatecol');
 		}
 		 public function delcheck()
 		{		

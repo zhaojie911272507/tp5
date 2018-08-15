@@ -1,4 +1,4 @@
-<?php /*a:1:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\update.html";i:1534156189;}*/ ?>
+<?php /*a:1:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\update.html";i:1534247396;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -16,7 +16,7 @@
 <div class="panel admin-panel">
   <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 项目信息</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="<?php echo url('proj/update'); ?>">
+    <form method="post" class="form-x" enctype="multipart/form-data" action="<?php echo url('proj/update'); ?>">
       <input type="hidden" value="<?php echo htmlentities($project['Id']); ?>" name="id">
       <div class="form-group">
         <div class="label">
@@ -32,7 +32,7 @@
           <label>相关文件上传</label>
         </div>
         <div class="field">
-          <input type="file" class="input" name="file" style="width:25%; float:left;" value="" placeholder="无操作默认不修改文件" />
+          <input type="file" class="input" name="file" style="width:25%; float:left;" value="<?php echo htmlentities($project['File']); ?>" placeholder="无操作默认不修改文件" />
           <div class="input tips" style="width:25%; float:left;color:red;">提示:无操作默认不修改文件</div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-<?php /*a:3:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\contact\contact.html";i:1534233125;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534228713;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
+<?php /*a:3:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\contact\contact.html";i:1534254015;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\header.html";i:1534251106;s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\index\view\common\footer.html";i:1533990931;}*/ ?>
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -41,7 +41,7 @@
 			<header>
 			<div class="container_12">
 				<div class="grid_12">
-					<h1><a href="<?php echo url('index/index'); ?>"><img src="http://127.0.0.1/tp5/public/static/index/images/logo.png" alt="Boo House"></a></h1>
+					<h1><a href="<?php echo url('member/login/index'); ?>"><img src="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($webinfo['Logo']); ?>" alt="Boo House"></a></h1>
 					<div class="menu_block">
 						<nav id="bt-menu" class="bt-menu">
 							<a href="#" class="bt-menu-trigger"><span>Menu</span></a>
@@ -187,7 +187,7 @@ $(function(){
              //验证用户名
              if( $(this).is('#name') ){
                     if( this.value=="" || this.value.length < 2 ){
-                        var errorMsg = '请输入至少2位的用户名.';
+                        var errorMsg = '请输入您的姓名.';
                         $parent.append('<span class="formtips onError">'+errorMsg+'</span>');
                     }else{
                         var okMsg = '输入正确.';

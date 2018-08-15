@@ -13,7 +13,20 @@ class Proj extends Base
 { 
 			public function listproject()
 		    {
-			    $list = Db::name('project')->order('Id','desc')->paginate(4);
+			    $list = Db::name('project')
+					    ->where('Status','=','0')
+					    ->order('TerminalTime','desc')
+					    ->paginate(4);
+			    $count=$list->total();//获取总记录数
+			    $this->assign('project',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
+			    return $this->fetch();//渲染模板输出
+	    	 }
+	    	 public function finlistproject()
+		     {
+			    $list = Db::name('project')
+					    ->where('Status','=','1')
+					    ->order('TerminalTime','desc')
+					    ->paginate(4);
 			    $count=$list->total();//获取总记录数
 			    $this->assign('project',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
 			    return $this->fetch();//渲染模板输出
@@ -23,29 +36,29 @@ class Proj extends Base
 				//$upload=new Uploadfile;
 				if(request()->isPost())
 				{
-				$files = request()->file('file');
-				foreach($files as $file)//支持多文件上传
-				{
-					$info = $file->move('static/uploads');
-					if($info)
+					$files = request()->file('file');
+					foreach($files as $file)//支持多文件上传
 					{
-						$info->getExtension();
-						 $info->getSaveName();
-						 $info->getFilename();
-					}else{
-						// 上传失败获取错误信息
-						echo $file->getError();die;
-					}
-						$data=[
-						'ProjectName'=> input('pname'),
-						'File'=>$info->getSaveName(),
-						'ProjectInfo'=> input('pinfo'),
-						'StartTime'=> input('stime'),
-						'TerminalTime'=> input('etime'),
-						'Leader'=>input('pleader'),
-						'LeaderContect'=> input('ptel'),
-					];
-				
+						$info = $file->move('static/uploads');
+						if($info)
+						{
+							 $info->getExtension();
+							 $info->getSaveName();
+							 $info->getFilename();
+						}else{
+							// 上传失败获取错误信息
+							echo $file->getError();die;
+						}
+							$data=[
+							'ProjectName'=> input('pname'),
+							'File'=>$info->getSaveName(),
+							'ProjectInfo'=> input('pinfo'),
+							'StartTime'=> input('stime'),
+							'TerminalTime'=> input('etime'),
+							'Leader'=>input('pleader'),
+							'LeaderContect'=> input('ptel'),
+						];
+					
 						$validate = new Validateuser();
 					 	if(!$validate->scene('add')->check($data))
 					    {
@@ -165,7 +178,7 @@ class Proj extends Base
 					{
 						if(db('project')->delete($id))
 						{
-							return redirect('listproj');
+							return redirect('listproject');
 						}else{
 							$this->error('删除该项目失败');
 						}
@@ -174,6 +187,43 @@ class Proj extends Base
 					}
 				}
 			}
+	 	}
+		 	 public function changestatus()
+			 {		
+			 	if(request()->isPost())
+				{
+					$id=input('id/a');//返回的结果为获取的id
+					foreach ($id as $value) 
+					{
+						$proj=db('project')->find($id);//获取一条数据	
+						if(db('project')->update(['Status'=>'1']))
+						{
+						 	 return redirect('listproject');
+						}else{
+							$this->error('添加到完成项目失败');
+						}
+					}
+				}
+			}
+		 	
+	 	public function projectmem()
+	 	{
+	 		// $id=input('id');
+	 		// $projname=input('ProjectName');
+	 		// $project=db('project')->find($id);
+	 		// $projectmem=db('projectmem')->where('$project['ProjectName']','=','')->find();
+	 		$member=Db::name('stdinfo')->order( 'Id','desc')->select();
+	 		 $this->assign('member',$member);
+	 		$id=input('id');
+	 		$projectname=input('projectname');
+		 	// $project=db('projectmem')->find($projectname);//获取一条数据	
+		 	// $this->assign('project',$project);
+	 		$list = Db::name('project')
+					    ->where('ProjectName','=',$projectname)
+					    ->order('Id','desc')
+					    ->paginate(4);
+			$this->assign('projectmem',$list);
+	 	    return $this->fetch('projectmem');
 	 	}
 }
  

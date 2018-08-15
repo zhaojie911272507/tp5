@@ -1,8 +1,7 @@
 <?php
 
 namespace app\index\controller;
-use think\Controller;
-class Aboutus extends Controller
+class Aboutus extends Base
 { 
  
     public function Aboutus()

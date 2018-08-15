@@ -1,9 +1,8 @@
 <?php
 
 namespace app\index\controller;
-use think\Controller;
 use think\Db;
-class Search extends Controller
+class Search extends Base
 { 
     public function search()
     {

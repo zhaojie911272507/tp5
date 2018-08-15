@@ -23,7 +23,7 @@ class Column extends Validate
 	// 	//场景验证，就像验证密码时，密码可以为空，也就是密码保持原有的不变
 	 	protected $scene = [
 	 	'addcol' => ['Cname','Status'],//add为场景的名称，UserName为要验证的字段，可以验证多个。一个数组就是一条元素，一条元素就是一个场景，如果'UserName'=>'require'此时为只验证UserName的require属性
-	 	'updatecol'=>['Cname'=>'require','Status'],
+	 	'updatecol'=>['Cname'=>'require'],
 	 	];
 
 }

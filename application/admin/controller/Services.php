@@ -67,9 +67,7 @@ class Services extends Base
 						if(db('services')->update($data))//此处把Id写到了data数组里，所以此处省略了where
 						{
 							return redirect('services');
-						}
-						else
-						{
+						}else{
 							$this->error('修改前台服务信息失败');
 						}
 						 return ;//加一个return将不再显示下面的语句
@@ -89,9 +87,7 @@ class Services extends Base
 						if(db('services')->update($data))//此处把Id写到了data数组里，所以此处省略了where
 						{
 							return redirect('services');
-						}
-						else
-						{
+						}else{
 							$this->error('修改前台服务信息失败');
 						}
 						 return ;//加一个return将不再显示下面的语句

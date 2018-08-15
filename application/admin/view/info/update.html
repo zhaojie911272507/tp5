@@ -32,8 +32,8 @@
           <label>网站LOGO：</label>
         </div>
         <div class="field">
-          <input type="file" name="image" id="url1" class="input tips" style="width:25%; float:left;" value="{$webinfo.Logo}" data-toggle="hover" data-place="right" data-image=""  />
-          <input type="submit" class="button bg-blue margin-left" name="logo" id="image1" value="+ 浏览上传" >
+          <input type="file" name="image" id="url1" class="input tips" style="width:25%; float:left;" value="{$webinfo.Logo}" data-toggle="hover" data-place="right" data-image="__PUBLIC__/static/uploads/{$webinfo.Logo}"  />
+           <div class="input tips" style="width:25%; float:left;color:red;">提示:无操作默认不修改网站LOGO</div>
         </div>
       </div>
       <div class="form-group">

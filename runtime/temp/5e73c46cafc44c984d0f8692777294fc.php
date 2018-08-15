@@ -1,4 +1,4 @@
-<?php /*a:1:{s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\addadmin\add.html";i:1533609862;}*/ ?>
+<?php /*a:1:{s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\addadmin\add.html";i:1534229341;}*/ ?>
 
 <!DOCTYPE html>
 <html lang="zh-cn">

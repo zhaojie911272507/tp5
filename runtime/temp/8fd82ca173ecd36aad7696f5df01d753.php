@@ -1,4 +1,4 @@
-<?php /*a:1:{s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\info.html";i:1533734745;}*/ ?>
+<?php /*a:1:{s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\info.html";i:1534247921;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -31,8 +31,8 @@
           <label>网站LOGO：</label>
         </div>
         <div class="field">
-          <input type="text" id="url1" name="slogo" class="input tips" style="width:25%; float:left;" value="<?php echo htmlentities($webinfo['Logo']); ?>" data-toggle="hover" data-place="right" data-image=""  />
-          <input type="file" class="button bg-blue margin-left" id="image1" value="+ 浏览上传" >
+          <input type="text" id="url1" name="slogo" class="input tips" style="width:25%; float:left;" value="<?php echo htmlentities($webinfo['Logo']); ?>" data-toggle="hover" data-place="right" data-image="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($webinfo['Logo']); ?>"  />
+           
         </div>
       </div>
       <div class="form-group">

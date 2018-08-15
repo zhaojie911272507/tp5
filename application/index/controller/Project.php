@@ -1,9 +1,8 @@
 <?php
 
 namespace app\index\controller;
- use think\Controller;
  use think\Db;
-class Project extends Controller
+class Project extends Base
 { 
  
     public function Project()

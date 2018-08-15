@@ -1,4 +1,4 @@
-<?php /*a:1:{s:77:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\column\listcolumn.html";i:1533993474;}*/ ?>
+<?php /*a:1:{s:77:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\column\listcolumn.html";i:1534317184;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -15,9 +15,8 @@
 </head>
 <body>
 <div class="panel admin-panel">
-<form method="post" class="form-x" id="form1" action="<?php echo url('Column/updatecol'); ?>">
+<form method="post" class="form-x" id="form1" action="<?php echo url('column/updatecol'); ?>">
   <div class="panel-head"><strong class="icon-reorder"> 栏目列表</strong></div>
-    <input type="text" id="cname" name="cname" class="input" value="" size="10"/> 
   <div class="padding border-bottom">
       <ul class="search">
         <li>
@@ -36,21 +35,20 @@
     </tr>
    <?php if(is_array($column) || $column instanceof \think\Collection || $column instanceof \think\Paginator): $i = 0; $__LIST__ = $column;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
-      <td width="10%"><input type="checkbox" name="id[]" value="1" /><?php echo htmlentities($vo['Id']); ?></td>
+      <td width="10%"><input type="checkbox" id="id" name="id[]" value="<?php echo htmlentities($vo['Id']); ?>" /><?php echo htmlentities($vo['Id']); ?></td>
       <td>
-   
-      <input type="text" id="btn1" name="cname" class="input" value="<?php echo htmlentities($vo['Cname']); ?>" size="10" placeholder="请输入栏目名称" data-validate="required:请输入栏目名称" />  
+      <input type="text" id="cname" name="cname" class="input" value="<?php echo htmlentities($vo['Cname']); ?>" size="10" placeholder="请输入栏目名称" data-validate="required:请输入栏目名称" />  
       </td>
        <td>
             <?php if($vo['Status']==1): ?>
-            <option value="1">是</option>
+            <a modelid="28" onclick="changestatus(this);" class="btn btn-primary btn-sm shiny">显示</a>
             <?php elseif($vo['Status']==0): ?>
-            <option value="0">否</option>
+            <a modelid="28" onclick="changestatus(this);" class="btn btn-danger btn-sm shiny">禁用</a>
             <?php endif; ?>
       </td>
       <td>
       <div class="button-group">
-      <a type="submit"  class="button border-main" onclick="return updatecol()" href="<?php echo url('column/updatecol',array('id'=>$vo['Id'])); ?>"><span class="icon-edit"></span>修改</a>
+      <a type="submit"  class="button border-main" href="<?php echo url('column/updatecol',array('id'=>$vo['Id'])); ?>"><span class="icon-edit"></span>修改</a>
        <a class="button border-red"  onclick="return del()" href="<?php echo url('column/delcol',array('id'=>$vo['Id'])); ?>"><span class="icon-trash-o"></span>删除</a>
       </div>
       </td>
@@ -80,9 +78,7 @@ function del(){
   if(confirm("您确定要删除吗?\n\n请确认！"))
   {
     return true;
-  }
-  else
-  {
+  }else{
     return false;
   }
 }
@@ -108,17 +104,10 @@ function DelSelect(){
   if (Checkbox){
     var t=confirm("您确认要删除选中的内容吗？");
     if (t==false) return false;     
-  }
-  else{
+  }else{
     alert("请选择您要删除的内容!");
     return false;
   }
-}
-
-function check()
-{
-
-  alert(status.value);
 }
 </script>
 

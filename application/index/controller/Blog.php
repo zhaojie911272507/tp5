@@ -1,8 +1,7 @@
 <?php
 
 namespace app\index\controller;
- use think\Controller;
-class Blog extends Controller
+class Blog extends Base
 { 
  
     public function blog()

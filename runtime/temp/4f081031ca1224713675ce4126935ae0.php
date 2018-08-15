@@ -1,4 +1,4 @@
-<?php /*a:1:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\links\listlinks.html";i:1534084866;}*/ ?>
+<?php /*a:1:{s:75:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\links\listlinks.html";i:1534084916;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -34,7 +34,7 @@
 
       <td><?php echo htmlentities($vo['Id']); ?></td>      
       <td><?php echo htmlentities($vo['Title']); ?></td>
-      <td><a href="https://<?php echo htmlentities($vo['Url']); ?>" style="color:#2673b4; text-decoration:underline;" target="_blank"><?php echo htmlentities($vo['Url']); ?></a></td>
+      <td><a href="<?php echo htmlentities($vo['Url']); ?>" style="color:#2673b4; text-decoration:underline;" target="_blank"><?php echo htmlentities($vo['Url']); ?></a></td>
       <td>
         <?php if($vo['Desc'] != ""): ?>
         <?php echo htmlentities($vo['Desc']); else: ?>

@@ -2,10 +2,8 @@
 
 namespace app\index\controller;
 use think\Db;
-use think\Controller;
-class Services extends Controller
+class Services extends Base
 { 
- 
     public function Services()
     {
    		 $list = Db::name('services')->order('Sort','asc')->paginate(9); 

@@ -1,11 +1,10 @@
 <?php
 
 namespace app\index\controller;
-use think\Controller;
 use app\index\model\Contact as ContactModel;
 use app\index\validate\Contact as Validateuser;
 use think\Db;
-class Contact extends Controller
+class Contact extends Base
 { 
     public function contact()
     {

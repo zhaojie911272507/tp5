@@ -12,38 +12,36 @@
     <script src="__PUBLIC__/static/admin/style/js/pintuer.js"></script>  
 </head>
 <body>
-<form method="post" action="">
+<form method="post" action="{:url('book/delcheck')}">
   <div class="panel admin-panel">
     <div class="panel-head"><strong class="icon-reorder"> 留言管理</strong></div>
     <div class="padding border-bottom">
       <ul class="search">
         <li>
           <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
-          <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+          <button type="submit" onclick="return DelSelect()" href="javascript:void(0)" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
         </li>
       </ul>
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th width="120">ID</th>
+        <th width="10%">ID</th>
         <th>姓名</th>
-        <th>工作</th>
         <th>电话</th>
         <th>邮箱</th>
-        <th width="25%">留言内容</th>
-         <th width="120">留言时间</th>
+        <th width="30%">留言内容</th>
+         <th>留言时间</th>
         <th>操作</th> 
       </tr>
          {volist name='book' id='vo'}
         <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
+          <td width="10%"><input type="checkbox" name="id[]" value="{$vo.Id}" />
             {$vo.Id}</td>
           <td>{$vo.Name}</td>
-          <td>{$vo.Job}</td>
           <td>{$vo.Tel}</td> 
           <td><a href="mailto:{$vo.Email}" style="color:#2673b4; text-decoration:underline;">{$vo.Email}</a></td>   
-          <td>{$vo.Content}</td>
-          <td>{$vo.Timestamp}</td>
+          <td width="30%">{$vo.Content}</td>
+          <td >{$vo.Timestamp}</td>
           <td><div class="button-group"> <a class="button border-red" href="{:url('book/delbook',array('id'=>$vo['Id']))}" onclick="return del()"><span class="icon-trash-o"></span> 删除</a></div></td>
         </tr>
       {/volist}

@@ -35,11 +35,8 @@
     </tr>
    {volist name='guanliyuan' id='vo'}<!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
-   {if $vo.Id !='1' && $vo.Id != $Request.session.uid}
-       <td width="10%"><input id="check" type="checkbox" name="id[]" value="{$vo.Id}" />
-            {$vo.Id}</td>
-      
-    
+      {if $vo.Id !='1' && $vo.Id != $Request.session.uid}
+      <td width="10%"><input id="check" type="checkbox" name="id[]" value="{$vo.Id}" />{$vo.Id}</td>
       <td>{$vo.UserName}</td>
       <td>{$vo.TimeStamp}</td>
       <td>

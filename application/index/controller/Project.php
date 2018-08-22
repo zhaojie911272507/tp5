@@ -7,8 +7,13 @@ class Project extends Base
  
     public function Project()
     {
-    	
-     	return $this->fetch();
+	    $list = Db::name('project')
+			    ->where('Status','=','1')
+			    ->order('TerminalTime','desc')
+			    ->paginate(9);
+	    $count=$list->total();//获取总记录数
+	    $this->assign('project',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
+	    return $this->fetch();//渲染模板输出
      }
    
 

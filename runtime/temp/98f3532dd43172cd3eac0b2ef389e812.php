@@ -1,4 +1,4 @@
-<?php /*a:1:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\login\login.html";i:1533476960;}*/ ?>
+<?php /*a:1:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\login\login.html";i:1534646318;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -44,7 +44,9 @@
                         </div>
                     </div>
                 </div>
-                <div style="padding:30px;"><input type="submit" class="button button-block bg-main text-big input-big" value="登录"></div>
+               
+                 <div style="padding:30px;"></span><input type="submit" class="button button-block bg-main text-big input-big" value="登录"></div> 
+             
             </div>
             </form>          
         </div>

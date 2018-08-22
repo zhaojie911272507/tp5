@@ -42,7 +42,7 @@ class Info extends Validate
 		//场景验证，就像验证密码时，密码可以为空，也就是密码保持原有的不变
 		protected $scene = [
 	//add为场景的名称，username为要验证的字段，可以验证多个。一个数组就是一条元素，一条元素就是一个场景，如果'username'=>'require'此时为只验证username的require属性
-		'update'=>['Title','Logo','DomainName','Keywords','Info','contacts','PhoneNum','Tel','Fax','qq','Email','Adress','BottomInfo'],
+		'update'=>['Title','DomainName','Keywords','Info','contacts','PhoneNum','Tel','Fax','qq','Email','Adress','BottomInfo'],
 ];
 
 }

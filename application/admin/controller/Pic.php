@@ -12,12 +12,14 @@ class Pic extends Base
     {
 	    $list = Db::name('lunbotu')->order('Sort','asc')->paginate(3); 
 		 $count=$list->total();
-		 $this->assign('lunbotu',$list);
+		 $this->assign('lunbotu',$list);//分配到模板当中
 	     return $this->fetch();
-	     }
+	    }
 
 	     public function add()//添加
 		{
+			if(request()->isPost())
+			{
 		 // 获取表单上传文件 例如上传了001.jpg
 		 	$file = request()->file('image');
 			// 移动到框架应用根目录/uploads/ 目录下
@@ -37,8 +39,7 @@ class Pic extends Base
 				// 上传失败获取错误信息
 				$this->error($file->getError());
 			}
-			if(request()->isPost())
-			{
+			
 				$data=[
 				'Id'=>input('id'),
 				'Sort'=>input('sort'),

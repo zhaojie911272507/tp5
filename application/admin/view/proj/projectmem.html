@@ -19,48 +19,85 @@
 </head>
 <body>
 <div class="panel admin-panel">
-  <div class="panel-head"><strong class="icon-reorder"> 成员列表</strong></div>
+  <div class="panel-head"><strong class="icon-reorder">成员管理</strong></div>
   <div class="padding border-bottom">  
-  <button type="button" class="button border-yellow" onclick="window.location.href='#add'"><span class="icon-plus-square-o"></span> 添加成员</button>
   </div>
+  <form method="post" class="form-x" action="">
   <table class="table table-hover text-center">
     <tr>
       <th width="10%">ID</th>
-      <th width="10%">项目名称</th>
+      <th width="20%">项目名称</th>
       <th width="10%">负责人</th>
       <th width="10%">成员</th>
       <th width="10%">成员</th>
       <th width="10%">成员</th>
       <th width="10%">成员</th>
       <th width="10%">成员</th>
-      <th width="15%">操作</th>
+      <th width="10%">成员</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
-   {volist name='projectmem' id='vo'}
     <tr>
-      <td>{$vo.Id}</td>  
-      <td>{$vo.ProjectName}</td>
-      <td>{$vo.Leader}</td> 
-      <td>{$vo.Member1}</td> 
-      <td>{$vo.Member2}</td>    
-      <td>{$vo.Member3}</td> 
-      <td>{$vo.Member4}</td>     
-      <td>{$vo.Member5}</td>
-      <td><div class="button-group">
-        <a href="#" class="btn btn-primary btn-sm shiny"><i class="icon-edit"></i>修改</a>
-        <a href="#" onclick="warning('确实要删除吗', '')" class="btn btn-danger btn-sm shiny"><i class="fa icon-trash-o"></i> 删除</a>
-      </div></td>
+      <td>{$projectmem.Id}</td>  
+      <td >{$projectmem.ProjectName}</td>
+      <td rowspan="2">{$projectmem.Leader}<br><br><a href="{:url('proj/addleader',array('id'=>$projectmem['Id']))}" class="btn btn-danger btn-sm shiny">修改</a></td> 
+      {if $projectmem.Member1=="" OR $projectmem.Member1=="null" }
+      <td><a href="{:url('proj/addmem1',array('id'=>$projectmem['Id']))}"  class="btn btn-primary btn-sm shiny"><i class="icon-plus"></i>添加</a></td>
+      {else/}
+      <td rowspan="2">{$projectmem.Member1}<br><br><a href="{:url('proj/addmem1',array('id'=>$projectmem['Id']))}"  class="btn btn-danger btn-sm shiny">修改</a></td>
+      {/if} 
+
+      {if $projectmem.Member2=="" OR $projectmem.Member2=="null" }
+      <td><a href="{:url('proj/addmem2',array('id'=>$projectmem['Id']))}" class="btn btn-primary btn-sm shiny"><i class="icon-plus"></i>添加</a></td>
+      {else/}
+      <td rowspan="2">{$projectmem.Member2}<br><br><a href="{:url('proj/addmem2',array('id'=>$projectmem['Id']))}" class="btn btn-danger btn-sm shiny">修改</a></td>
+      {/if}
+
+      {if $projectmem.Member3=="" OR $projectmem.Member3=="null" }
+      <td><a href="{:url('proj/addmem3',array('id'=>$projectmem['Id']))}" class="btn btn-primary btn-sm shiny"><i class="icon-plus"></i>添加</a></td>
+      {else/}
+      <td rowspan="2">{$projectmem.Member3}<br><br><a href="{:url('proj/addmem3',array('id'=>$projectmem['Id']))}" class="btn btn-danger btn-sm shiny">修改</a></td>
+      {/if}
+   
+      {if $projectmem.Member4=="" OR $projectmem.Member4=="null" }
+      <td><a href="{:url('proj/addmem4',array('id'=>$projectmem['Id']))}" class="btn btn-primary btn-sm shiny"><i class="icon-plus"></i>添加</a></td>
+      {else/}
+      <td rowspan="2">{$projectmem.Member4}<br><br><a href="{:url('proj/addmem4',array('id'=>$projectmem['Id']))}" class="btn btn-danger btn-sm shiny">修改</a rowspan="2"></td>
+      {/if}
+
+      {if $projectmem.Member5=="" OR $projectmem.Member5=="null" }
+      <td><a href="{:url('proj/addmem5',array('id'=>$projectmem['Id']))}" class="btn btn-primary btn-sm shiny"><i class="icon-plus"></i>添加</a></td>
+      {else/}
+      <td rowspan="2">{$projectmem.Member5}<br><br><a href="{:url('proj/addmem5',array('id'=>$projectmem['Id']))}" class="btn btn-danger btn-sm shiny">修改</a></td>
+      {/if}
+
+      {if $projectmem.Member6=="" OR $projectmem.Member6=="null" }
+      <td><a href="{:url('proj/addmem6',array('id'=>$projectmem['Id']))}" class="btn btn-primary btn-sm shiny"><i class="icon-plus"></i>添加</a></td>
+      {else/}
+      <td rowspan="2">{$projectmem.Member6}<br><br><a href="{:url('proj/addmem6',array('id'=>$projectmem['Id']))}" class="btn btn-danger btn-sm shiny">修改</a></td>
+      {/if}
+
     </tr>
-    {/volist}
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> 
   </table>
 </div>
-
- <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <th width="30%"></th>
-    <th width="40%">{$projectmem|raw}</th>
-    <th width="30%"></th>
-  </tr>
-</table>
+</form>
 <script type="text/javascript">
 function del()
 {
@@ -72,51 +109,4 @@ function del()
   }
 }
 </script>
-<div class="panel admin-panel margin-top" id="add">
-  <div class="panel-head"><strong><span class="icon-pencil-square-o"></span> 增加内容</strong></div>
-  <div class="body-content">
-    <form method="post" class="form-x" enctype="multipart/form-data" action="{:url('pic/add')}">    
-        <div class="form-group">
-        <div class="label">
-          <label>项目名称：</label>
-        </div>
-        <div class="field">
-          <input type="text" class="input w50" name="pname" value="{$projectmem.ProjectName}"  data-validate="required:填写排序," />
-          <div class="tips"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="label">
-          <label>添加成员：</label>
-        </div>
-        <div class="field">
-          <select name="pid" class="input w50">
-            <option value="">请选择成员</option>
-            {volist name='member' id='vo'}
-            <option value="">{$vo.Name}</option>
-            {/volist}
-          </select>
-          <div class="tips">不选择上级分类默认为一级分类</div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="label">
-          <label>添加成员：</label>
-        </div>
-        <div class="field">
-          <textarea type="text" class="input" name="alt" style="height:120px;" data-validate="required:描述不能为空," value=""></textarea>
-          <div class="tips"></div>
-        </div>
-      </div>
-      <div class="form-group">
-        <div class="label">
-          <label></label>
-        </div>
-        <div class="field">
-          <button class="button bg-main icon-check-square-o" type="submit"> 提交</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
 </body></html>

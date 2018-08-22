@@ -1,4 +1,4 @@
-<?php /*a:1:{s:76:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\listproject.html";i:1534324555;}*/ ?>
+<?php /*a:1:{s:76:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\proj\listproject.html";i:1534856519;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -16,15 +16,15 @@
 <body>
 <div class="panel admin-panel">
   <form method="post" class="form-x" action="<?php echo url('proj/delcheck'); ?>">
-  <div class="panel-head"><strong class="icon-reorder">未完成项目列表</strong></div>
-  <div class="padding border-bottom">
+    <div class="panel-head"><strong class="icon-reorder">未完成项目列表</strong></div>
+    <div class="padding border-bottom">
       <ul class="search">
         <li>
-          <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
+           <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
            <a class="button border-yellow" href="<?php echo url('proj/add'); ?>"><span class="icon-plus-square-o"></span> 添加项目</a>
-          <button type="submit" onclick="return DelSelect()" href="javascript:void(0)" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
-          <a class="button border-blue" href="<?php echo url('proj/changestatus'); ?>"><span class="icon-plus-square-o"></span> 添加到已完成</a>
-           <a class="button border-blue" href="<?php echo url('proj/finlistproject'); ?>"><span class="icon-th-list"></span> 已完成项目</a>
+           <button type="submit" onclick="return DelSelect()" href="javascript:void(0)" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+           <a class="button border-blue" href="<?php echo url('proj/shuaxin'); ?>"><span class="icon-refresh"></span> 刷新</a>
+           <a class="button border-blue" href="<?php echo url('proj/finlistproject'); ?>">已完成项目<span class="icon-chevron-right"></span></a>
         </li>
       </ul>
     </div>
@@ -33,12 +33,12 @@
       <th width="10%">ID</th>
       <th width="10%">项目名称</th>
       <th width="15%">项目概括</th>
-      <th width="10%"><span class="icon-cloud-download"></span>相关文件</th>
+      <th width="10%"><span class="icon-cloud-download"></span>甲方需求</th>
       <th width="10%">开始时间</th>
       <th width="10%">预计完成时间</th>
-      <th width="10%"><span class="icon-picture"></span>图片</th>
       <th width="10%"><span class="icon-group"></span>成员</th>
-      <th width="25%">操作</th>
+      <th>操作</th>
+      <th width="15%">操作</th> 
     </tr>
    <?php if(is_array($project) || $project instanceof \think\Collection || $project instanceof \think\Paginator): $i = 0; $__LIST__ = $project;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
@@ -48,33 +48,35 @@
        <th width="10%"><a href="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($vo['File']); ?>" style="color:#2673b4;text-decoration:underline;" download="http://127.0.0.1/tp5/public/static/uploads/<?php echo htmlentities($vo['File']); ?>">项目相关文件</a></th>
       <td><?php echo htmlentities($vo['StartTime']); ?></td>
       <td><?php echo htmlentities($vo['TerminalTime']); ?></td>
-      <td><a class="btn btn-warning btn-sm shiny"><i class="fa fa-key"></i> 相关图片</a></td>
-      <td><a href="<?php echo url('proj/projectmem',array('projectname'=>$vo['ProjectName'])); ?>" class="btn btn-primary btn-sm shiny">成员管理</a></td>
-      <td width="25%">
+      <td><a href="<?php echo url('proj/projectmem',array('id'=>$vo['Id'])); ?>" class="btn btn-primary btn-sm shiny">成员管理</a></td>
+       <td><a projid="<?php echo htmlentities($vo['Id']); ?>"  onclick="changestatus(this)" class="btn btn-primary btn-sm shiny">未完成</a></td>
+      <td>
         <div class="button-group">
              <a href="<?php echo url('proj/update',array('id'=>$vo['Id'])); ?>" class="btn btn-primary btn-sm shiny"><i class="icon-edit"></i>修改</a>
              <a onclick="return del()" href="<?php echo url('proj/del',array('id'=>$vo['Id'])); ?>" class="btn btn-danger btn-sm shiny"><i class="fa icon-trash-o"></i> 删除</a>
-         </div>
+        </div>
       </td>
      </tr>
     <tr>
        <td colspan="9">
-          <div class="progress progress-warning progress-striped" style="margin-bottom: 9px;">
-          <div class="bar" style="width: 60%"></div>
+        <div class="container">
+          <div class="progress progress-striped active">
+            <div class="progress-bar progress-bar-success" role="progreess-success" aria-valuenow="<?php echo date('Y-M-d H:m:s',time()) ?>" aria-valuemin="<?php echo htmlentities($vo['StartTime']); ?>" aria-valuesmax="<?php echo htmlentities($vo['TerminalTime']); ?>" style="width:35%">
+            </div>
+          </div>
         </div>
        </td>
       </tr>
-    
     <?php endforeach; endif; else: echo "" ;endif; ?>
   </table>
   </div>
    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <th width="30%"></th>
-    <th width="40%"><?php echo $project; ?></th>
-    <th width="30%"></th>
-  </tr>
-</table>
+      <tr>
+        <th width="30%"></th>
+        <th width="40%"><?php echo $project; ?></th>
+        <th width="30%"></th>
+      </tr>
+   </table>
 </form>
 <script type="text/javascript">
 
@@ -111,21 +113,25 @@ function DelSelect(){
     return false;
   }
 }
-function changestatus(){
-  var Checkbox=false;
-   $("input[name='id[]']").each(function(){
-    if (this.checked==true) {   
-    Checkbox=true;  
-    }
-  });
-  if (Checkbox){
-    var t=confirm("确认项目已完成了吗？");
-    if (t==false) return false;     
-  }else{
-    alert("请选择您要添加的内容!");
-    return false;
-  }
-}
 
+function changestatus(obj){
+ 
+    var projid=$(obj).attr("projid");
+    $.ajax({
+      type:"post",
+      dataType:"json",
+      data:{projid:projid},
+      url:"<?php echo url('proj/changestatus'); ?>",
+      success:function(data){
+        if(data==1){
+          $(obj).attr("class","btn btn-danger btn-sm shiny");
+          $(obj).text('完成');
+        }else{
+          $(obj).attr("class","btn btn-primary btn-sm shiny");
+          $(obj).text('未完成');
+        }
+      }
+    });
+}
 </script>
 </body></html>

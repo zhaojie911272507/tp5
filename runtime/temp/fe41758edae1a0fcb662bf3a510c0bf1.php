@@ -1,4 +1,4 @@
-<?php /*a:3:{s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\index\index.html";i:1534078499;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\top.html";i:1533473153;s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\left.html";i:1533735504;}*/ ?>
+<?php /*a:3:{s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\index\index.html";i:1534858652;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\top.html";i:1533473153;s:72:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\common\left.html";i:1533735504;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -58,7 +58,7 @@ $(function(){
 
 
 <div class="admin">
-  <iframe scrolling="auto" rameborder="0" src="<?php echo url('index/index'); ?>" name="right" width="100%" height="100%">
+  <iframe scrolling="auto" rameborder="0" src="<?php echo url('member/listproject'); ?>" name="right" width="100%" height="100%">
     </iframe>
 </div>
 

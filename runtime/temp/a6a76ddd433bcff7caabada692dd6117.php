@@ -1,4 +1,4 @@
-<?php /*a:1:{s:74:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\book\listbook.html";i:1534141870;}*/ ?>
+<?php /*a:1:{s:74:"G:\phpStudy\PHPTutorial\WWW\tp5\application\member\view\book\listbook.html";i:1534773834;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -20,9 +20,7 @@
   
     <table class="table table-hover text-center">
       <tr>
-        <th width="120">ID</th>
         <th>姓名</th>
-        <th>工作</th>
         <th>电话</th>
         <th>邮箱</th>
         <th width="25%">留言内容</th>
@@ -30,11 +28,9 @@
       </tr>
          <?php if(is_array($book) || $book instanceof \think\Collection || $book instanceof \think\Paginator): $i = 0; $__LIST__ = $book;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
         <tr>
-          <td><input type="checkbox" name="id[]" value="1" /><?php echo htmlentities($vo['Id']); ?></td>
           <td><?php echo htmlentities($vo['Name']); ?></td>
-          <td><?php echo htmlentities($vo['Job']); ?></td>
           <td><?php echo htmlentities($vo['Tel']); ?></td> 
-          <td><?php echo htmlentities($vo['Email']); ?></td>   
+          <td><a href="mailto:<?php echo htmlentities($vo['Email']); ?>" style="color:#2673b4; text-decoration:underline;"><?php echo htmlentities($vo['Email']); ?></a></td>   
           <td><?php echo htmlentities($vo['Content']); ?></td>
           <td><?php echo htmlentities($vo['Timestamp']); ?></td>
         </tr>

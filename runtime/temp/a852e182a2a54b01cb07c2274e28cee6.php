@@ -1,4 +1,4 @@
-<?php /*a:1:{s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\book\listbook.html";i:1534084702;}*/ ?>
+<?php /*a:1:{s:73:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\book\listbook.html";i:1534673739;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -13,38 +13,36 @@
     <script src="http://127.0.0.1/tp5/public/static/admin/style/js/pintuer.js"></script>  
 </head>
 <body>
-<form method="post" action="">
+<form method="post" action="<?php echo url('book/delcheck'); ?>">
   <div class="panel admin-panel">
     <div class="panel-head"><strong class="icon-reorder"> 留言管理</strong></div>
     <div class="padding border-bottom">
       <ul class="search">
         <li>
           <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
-          <button type="submit" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
+          <button type="submit" onclick="return DelSelect()" href="javascript:void(0)" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
         </li>
       </ul>
     </div>
     <table class="table table-hover text-center">
       <tr>
-        <th width="120">ID</th>
+        <th width="10%">ID</th>
         <th>姓名</th>
-        <th>工作</th>
         <th>电话</th>
         <th>邮箱</th>
-        <th width="25%">留言内容</th>
-         <th width="120">留言时间</th>
+        <th width="30%">留言内容</th>
+         <th>留言时间</th>
         <th>操作</th> 
       </tr>
          <?php if(is_array($book) || $book instanceof \think\Collection || $book instanceof \think\Paginator): $i = 0; $__LIST__ = $book;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
         <tr>
-          <td><input type="checkbox" name="id[]" value="1" />
+          <td width="10%"><input type="checkbox" name="id[]" value="<?php echo htmlentities($vo['Id']); ?>" />
             <?php echo htmlentities($vo['Id']); ?></td>
           <td><?php echo htmlentities($vo['Name']); ?></td>
-          <td><?php echo htmlentities($vo['Job']); ?></td>
           <td><?php echo htmlentities($vo['Tel']); ?></td> 
           <td><a href="mailto:<?php echo htmlentities($vo['Email']); ?>" style="color:#2673b4; text-decoration:underline;"><?php echo htmlentities($vo['Email']); ?></a></td>   
-          <td><?php echo htmlentities($vo['Content']); ?></td>
-          <td><?php echo htmlentities($vo['Timestamp']); ?></td>
+          <td width="30%"><?php echo htmlentities($vo['Content']); ?></td>
+          <td ><?php echo htmlentities($vo['Timestamp']); ?></td>
           <td><div class="button-group"> <a class="button border-red" href="<?php echo url('book/delbook',array('id'=>$vo['Id'])); ?>" onclick="return del()"><span class="icon-trash-o"></span> 删除</a></div></td>
         </tr>
       <?php endforeach; endif; else: echo "" ;endif; ?>

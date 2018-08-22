@@ -1,4 +1,4 @@
-<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\index.html";i:1534040216;s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1533207076;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1534215624;}*/ ?>
+<?php /*a:3:{s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\index\index.html";i:1534040216;s:70:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\top.html";i:1533207076;s:71:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\common\left.html";i:1534673641;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -34,21 +34,11 @@
   <h2><span class="icon-user"></span>成员管理</h2>
   <ul style="display:block">
     <li><a href="<?php echo url('addadmin/listadmin'); ?>" target="right"><span class="icon-caret-right"></span>管理员管理</a></li>
-    <li><a href="<?php echo url('addadmin/add'); ?>" target="right"><span class="icon-caret-right"></span>增加管理员</a></li>
     <li><a href="<?php echo url('addstd/liststd'); ?>" target="right"><span class="icon-caret-right"></span>学生管理</a></li>
-    <li><a href="<?php echo url('addstd/add'); ?>" target="right"><span class="icon-caret-right"></span>增加学生</a></li>
   </ul> 
-    <h2><span class="icon-plus"></span>栏目管理</h2>
-  <ul style="display:block">
-    <li><a href="<?php echo url('column/listcolumn'); ?>" target="right"><span class="icon-caret-right"></span>内容管理</a></li>
-    
-   <!--  <li><a href="#" target="right"><span class="icon-caret-right"></span>添加内容</a></li>
-    <li><a href="#" target="right"><span class="icon-caret-right"></span>分类管理</a></li> -->        
-    </ul> 
-
 <h2><span class="icon-link"></span>链接列表</h2>
   <ul style="display:block">
-    <li><a href="<?php echo url('links/listlinks'); ?>" target="right"><span class="icon-chain"></span>友情链接管理</a></li>
+    <li><a href="<?php echo url('links/listlinks'); ?>" target="right"><span class="icon-caret-right"></span>友情链接管理</a></li>
   
   </ul>  
    

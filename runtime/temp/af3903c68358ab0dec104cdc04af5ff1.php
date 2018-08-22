@@ -1,4 +1,4 @@
-<?php /*a:1:{s:78:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\addadmin\listadmin.html";i:1534125386;}*/ ?>
+<?php /*a:1:{s:78:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\addadmin\listadmin.html";i:1534673033;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
@@ -36,11 +36,8 @@
     </tr>
    <?php if(is_array($guanliyuan) || $guanliyuan instanceof \think\Collection || $guanliyuan instanceof \think\Paginator): $i = 0; $__LIST__ = $guanliyuan;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><!--每次循环的时候都把数据复制给vo,而这里的name的值要与assign()函数里的第一个参数保持一致,list为数组，所以也可以用foreach输出-->
     <tr>
-   <?php if($vo['Id'] !='1' && $vo['Id'] != app('request')->session('uid')): ?>
-       <td width="10%"><input id="check" type="checkbox" name="id[]" value="<?php echo htmlentities($vo['Id']); ?>" />
-            <?php echo htmlentities($vo['Id']); ?></td>
-      
-    
+      <?php if($vo['Id'] !='1' && $vo['Id'] != app('request')->session('uid')): ?>
+      <td width="10%"><input id="check" type="checkbox" name="id[]" value="<?php echo htmlentities($vo['Id']); ?>" /><?php echo htmlentities($vo['Id']); ?></td>
       <td><?php echo htmlentities($vo['UserName']); ?></td>
       <td><?php echo htmlentities($vo['TimeStamp']); ?></td>
       <td>

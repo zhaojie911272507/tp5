@@ -19,9 +19,7 @@
   
     <table class="table table-hover text-center">
       <tr>
-        <th width="120">ID</th>
         <th>姓名</th>
-        <th>工作</th>
         <th>电话</th>
         <th>邮箱</th>
         <th width="25%">留言内容</th>
@@ -29,11 +27,9 @@
       </tr>
          {volist name='book' id='vo'}
         <tr>
-          <td><input type="checkbox" name="id[]" value="1" />{$vo.Id}</td>
           <td>{$vo.Name}</td>
-          <td>{$vo.Job}</td>
           <td>{$vo.Tel}</td> 
-          <td>{$vo.Email}</td>   
+          <td><a href="mailto:{$vo.Email}" style="color:#2673b4; text-decoration:underline;">{$vo.Email}</a></td>   
           <td>{$vo.Content}</td>
           <td>{$vo.Timestamp}</td>
         </tr>

@@ -9,7 +9,7 @@ class Book extends Base
 { 
 		public function listbook()
 	    {
-		    $list=Db::name('book')->paginate(6);  
+		    $list=Db::name('book')->order('Id','desc')->paginate(6);  
 		    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
 		    $count=$list->total();//获取总记录数
 		    $this->assign('book',$list);//把分页数据赋值分配给模板中,即list,此时list为数组

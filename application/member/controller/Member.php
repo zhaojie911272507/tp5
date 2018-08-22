@@ -12,40 +12,48 @@ class Member extends Base
     	$list=Db::name('stdinfo')->order('Id','desc')->paginate(6);  // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
 	    $count=$list->total();//获取总记录数
 	    $this->assign('project',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
-
       	return $this->fetch('listproject');
-	
-      }
+     }
    
 	public function listproject()
     {
-    	
 	    $list=Db::name('project')->order('Id','desc')->paginate(4);
 	    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
 	    $count=$list->total();//获取总记录数
 	    $this->assign('project',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
-
-	     return $this->fetch();//渲染模板输出
+	    return $this->fetch();//渲染模板输出
 		
      }
 	public function listmember()
     {
-    	
 	    $list=Db::name('stdinfo')->order('Id','desc')->paginate(6);
 	    // $list=addadmin::where('status',1)->paginate(3);//查询数据并赋值给$list，且每页显示4条数据
 	    $count=$list->total();//获取总记录数
 	    $this->assign('member',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
-
 	     return $this->fetch();//渲染模板输出
-		
      }
-
+     public function projectmem()
+	 	{
+	 		$id=input('id');
+	 		$list=db('project')->find($id);//获取一条数据	
+			$this->assign('projectmem',$list);
+	 	    return $this->fetch('projectmem');
+	 	}
+	 	public function shuaxin(){
+	 		return redirect('member/listproject');
+	 	}
+      public function finlistproject()
+      {
+	    $list = Db::name('project')
+			    ->where('Status','=','1')
+			    ->order('TerminalTime','desc')
+			    ->paginate(4);
+	    $count=$list->total();//获取总记录数
+	    $this->assign('project',$list);//把分页数据赋值分配给模板中,即list,此时list为数组
+	    return $this->fetch();//渲染模板输出
+	  }
 	
 
-	 public function logout()
-	 {
-	 	session(null);
-	 	$this->success('退出成功..','login/login');
-	 }
+	
 }
  

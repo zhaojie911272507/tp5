@@ -1,4 +1,4 @@
-<?php /*a:1:{s:67:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\pic\pic.html";i:1534151123;}*/ ?>
+<?php /*a:1:{s:67:"G:\phpStudy\PHPTutorial\WWW\tp5\application\admin\view\pic\pic.html";i:1534845332;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>

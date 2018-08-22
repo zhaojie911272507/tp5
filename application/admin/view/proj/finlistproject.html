@@ -22,7 +22,8 @@
           <button type="button"  class="button border-green" id="checkall"><span class="icon-check"></span> 全选</button>
            <a class="button border-yellow" href="{:url('proj/add')}"><span class="icon-plus-square-o"></span> 添加项目</a>
           <button type="submit" onclick="return DelSelect()" href="javascript:void(0)" class="button border-red"><span class="icon-trash-o"></span> 批量删除</button>
-          <a class="button border-blue" href="{:url('proj/changestatus')}"><span class="icon-plus-square-o"></span> 添加到未完成</a>
+            <a class="button border-yellow"  onclick="changefin(this);" href="javascript:void(0)"><span class="icon-plus-square-o"></span> 批量添加到未完成</a>
+          <a class="button border-blue" href="{:url('proj/listproject')}"><span class="icon-reply"></span> 返回</a>
         </li>
       </ul>
     </div>
@@ -31,7 +32,7 @@
       <th width="10%">ID</th>
       <th width="10%">项目名称</th>
       <th width="15%">项目概括</th>
-      <th width="10%">相关文件</th>
+      <th width="10%"><span class="icon-cloud-download"></span>甲方需求</th>
       <th width="10%">开始时间</th>
       <th width="10%">预计完成时间</th>
       <th width="10%">图片</th>
@@ -46,8 +47,8 @@
        <th width="10%"><a href="__PUBLIC__/static/uploads/{$vo.File}" style="color:#2673b4;text-decoration:underline;" download="__PUBLIC__/static/uploads/{$vo.File}">项目相关文件</a></th>
       <td>{$vo.StartTime}</td>
       <td>{$vo.TerminalTime}</td>
-      <td><a class="btn btn-warning btn-sm shiny"><i class="fa fa-key"></i> 相关图片</a></td>
-      <td><a href="{:url('proj/projectmem',array('projectname'=>$vo['ProjectName']))}" class="btn btn-primary btn-sm shiny">成员管理</a></td>
+      <td><a href="{:url('proj/pic',array('id'=>$vo['Id']))}"  class="btn btn-warning btn-sm shiny"><i class="fa fa-key"></i> 相关图片</a></td>
+      <td><a href="{:url('proj/projectmem',array('id'=>$vo['Id']))}" class="btn btn-primary btn-sm shiny">成员管理</a></td>
       <td width="25%">
         <div class="button-group">
              <a href="{:url('proj/update',array('id'=>$vo['Id']))}" class="btn btn-primary btn-sm shiny"><i class="icon-edit"></i>修改</a>
@@ -101,7 +102,8 @@ function DelSelect(){
     return false;
   }
 }
-function changestatus(){
+
+ function changefin(obj){
   var Checkbox=false;
    $("input[name='id[]']").each(function(){
     if (this.checked==true) {   
@@ -109,13 +111,33 @@ function changestatus(){
     }
   });
   if (Checkbox){
-    var t=confirm("确认项目已完成了吗？");
+    var t=confirm("您确认要将选中的选项添加到未完成吗?");
     if (t==false) return false;     
   }else{
-    alert("请选择您要添加的内容!");
+    alert("请选择您要修改的选项!");
     return false;
   }
-}
-
+ var arr = new Array();
+ var i = 0;
+   $("input[name='id[]']").each(function(){
+    if (this.checked==true){  
+      arr[i] = this.value;
+      i++;
+    }
+  });
+    $.ajax({
+      type:"post",
+      dataType:"json",
+      data:{pro:arr},
+      url:"{:url('proj/changefin')}",
+      success:function(data){
+       if(data==1){
+       window.location.href="{:url('proj/finlistproject')}";
+       }else if(data==2){
+        window.location.href="{:url('proj/finlistproject')}";
+       }
+      }
+    });
+ }
 </script>
 </body></html>
